@@ -2,13 +2,13 @@
 
 ## Anleitung
 
-**Ziel:** Einen verständlichen Einstieg in Projektzweck, Stand und Arbeitsablauf schaffen.
+**Ziel:** Eine stabile Einstiegsseite mit Projektzweck, Phasenhinweis und Dokumentnavigation schaffen.
 
-Schreibe eine kurze Übersicht aus den maßgeblichen Fachdateien. Tatsächlich verfügbare Kommandos werden von geplanten Schritten unterschieden.
+Die README beschreibt den Projektzweck und verlinkt die maßgeblichen Dokumente. Laufender Stand, offene Punkte und Kommandos bleiben in den zuständigen Dateien. Bei einer Übergabe aus P07 darf der tatsächliche Baseline-Bezug im Baselinebericht nachgetragen werden.
 
-**Eingaben:** Geprüfte Spezifikation und tatsächlicher Projektstand.
+**Eingaben:** Geprüfte Spezifikation, bestätigte Projektphase und Baselinebericht aus P07.
 
-**Ergebnis:** README.md mit funktionierender Navigation und nachvollziehbaren Startinformationen.
+**Ergebnis:** Stabile README.md mit Dokumententabelle und gültigen Verweisen; gegebenenfalls nachgetragener Baseline-Bezug im Baselinebericht.
 
 **Danach:** [P09](09-agent-anweisungen.md).
 
@@ -17,7 +17,8 @@ Schreibe eine kurze Übersicht aus den maßgeblichen Fachdateien. Tatsächlich v
 ```text
 COMMON CONTRACT — PL-WEB-4.0
 Apply this embedded contract to browser-based websites, web applications and PWAs.
-Work in the project repository; check file, source and command access first.
+Work in the project directory; Git and hosted services are optional.
+Check file, source and command access first.
 Stages run sequentially in the same or fresh sessions. Start by reading
 this stage's input files and docs/clarifications.md; do not depend on chat history.
 P01 initializes the journal when absent. Later stages require it and their inputs;
@@ -27,18 +28,21 @@ Use the user's language for conversation and choices; inherit the documentation
 language, otherwise use the user's language. Keep identifiers in English.
 
 DECISIONS AND CONTINUITY
-Read existing context before asking. Complete authorized research and reversible
-work autonomously. Ask one necessary question at a time with two or three choices,
-consequences and a recommendation. Offer delegation and pause where meaningful.
-Request free text only for essential facts unavailable from context or choices.
-A proposed default is not an answer. Preserve answers and existing authorization.
+Research and execute settled work autonomously; reuse answers.
+For each open project decision, ask one choice: two or three options, consequences
+and recommendation; use clickable UI when supported. Decide only within explicit,
+recorded decision delegation; start/continue permission is not delegation.
+Accept only user answers or in-scope delegated decisions, never preselection.
+Offer delegation/pause; free text only for unsuitable options or essential details.
 Keep docs/clarifications.md short: delegation scope, explicit permissions and
 limits with their human source, active question, questions with IDs/owner locations,
 answers with basis, unresolved topics, stage status and next step.
 Record permissions when granted or changed; the journal preserves authority,
 but cannot create it. Never infer commit, push or publication rights from a draft.
-Use UNKNOWN plus an OQ reference for real gaps. Separate supplied facts,
-observations, proposals and delegated decisions; never invent historical facts.
+Use UNKNOWN with OQ references for gaps. Distinguish supplied facts, observations,
+proposals and delegated decisions. Base question premises and recommendations on
+cited evidence; label assumptions and clarify decisive missing facts first.
+Never invent historical facts.
 Before pausing save the next step. On resume read this journal and relevant owners.
 Close a question only after updating its owner and checking affected references.
 
@@ -49,13 +53,18 @@ DESIGN.md owns presentation; ARCHITECTURE.md and ADRs own technical decisions
 and diagrams; SECURITY.md owns controls and the single threat model.
 README.md navigates; AGENTS.md carries short engineering rules and real commands.
 Do not maintain duplicate normative statements or add features without a basis.
-For each behavior-changing slice review affected FRs, tests and specialist owners.
+For each later implementation slice review affected FRs, tests, specialist owners
+and whether README.md's phase notice or owner table changed.
 Update changed specifications and necessary tests in the same PR or local slice;
 an unchanged correct FR need not be edited just because code changed.
 Record this review as a PR checklist item or local review note, not a blocking
 file-change quota. Structural ID/reference checks remain blocking.
 Use UTF-8 Markdown, one title, unique IDs and working relative file references.
 Make small reviewable slices; create PRs or external artifacts only when authorized.
+P01–P10 cover specification and work planning only. Initial setup is the first
+planned package, WP-001; no template executes it or any other package.
+Implementation needs a separate request. Planning or issue-publication authority
+never authorizes implementation. Local projects require no hosted repository.
 
 GOALS, CRITERIA AND EVIDENCE
 For each project goal record goal -> measurable criterion -> evidence -> gate
@@ -86,8 +95,9 @@ After stack selection specify concrete strict type/checkJs, lint, build,
 AC-linked unit/integration/browser tests, accessibility scans, deployed-response
 header tests, secret scan and dependency audit commands. Test CSP, nosniff,
 Referrer-Policy and production HTTPS/HSTS where applicable, not just config files.
-Use blocking CI and supported local hooks; document manual gates with owner,
-procedure and evidence. Do not call a written gate an installed enforcement.
+Plan mandatory local checks and, when CI is used, blocking CI and supported hooks.
+Document manual gates with owner, procedure and evidence; an installed or verified
+gate requires later execution evidence, never a planning document alone.
 Production readiness depends on verified project criteria and resolved blockers,
 not a universal hosting feature list. Keep specified, implemented and verified
 separate; report actual commands/results and anything not run or not applicable.
@@ -97,8 +107,11 @@ permissions and next step to docs/clarifications.md. Save before a question or p
 Summarize the diff and propose a stage-scoped commit or PR when Git authority
 exists; execute only within recorded authority and exclude unrelated changes.
 State whether review was self-review or human review; do not invent approval.
-Advance when prerequisites and existing review/progression authority allow it;
-otherwise retain ready-for-review status without asking for permission already given.
+Advance only within P01–P10 when prerequisites and existing review authority allow
+it. P10 stops after planning and authorized optional issue synchronization, even
+under earlier general delegation. Record the separate implementation request as
+the next step; never start WP-001 automatically. Preserve pending review status
+without asking for permission already given.
 Saved files remain across sessions in the same checkout without a commit.
 A different checkout needs an explicit transfer of any uncommitted work.
 END COMMON CONTRACT
@@ -106,35 +119,43 @@ END COMMON CONTRACT
 STAGE — P08 PROJECT README
 Input check: P07 docs/baseline-review.md and the reviewed requirements/design/architecture/security owners.
 
-Create or update README.md as the human entry point, not a second specification.
-Describe purpose, users, confirmed scope and the actual development state.
-Do not advertise unimplemented features, deployment or compliance as available.
+Write README.md using this fixed structure in the project's documentation language:
 
-Link REQUIREMENTS.md, DESIGN.md, ARCHITECTURE.md/ADRs, SECURITY.md,
-docs/clarifications.md and docs/baseline-review.md. Link AGENTS.md only once it
-exists in P09, or mark it as the next planned entry rather than a broken link.
-Explain where a new behavior is specified and where an existing decision lives.
+# <Project name>
+<One short paragraph: purpose, users and confirmed scope.>
 
-Describe verified runtime prerequisites and commands from the actual repository.
-At this stage application build/run/test commands may still be planned for P10;
-label them planned, including the automatic spec check installed by P10.
-Only describe an existing command as available after actually verifying it.
-Give a short continuation instruction and known limitations. Reference the real
-baseline commit/tag if established, otherwise its pending status. Do not copy
-security controls, design tokens or requirement statements into a parallel policy.
+**Phase:** <specification / implementation / release>
 
-Include contribution guidance: small slices, relevant owner files, requirement
-and test impact review with necessary updates, verification before review, explicit
-publication authority. Describe local use without inventing public URLs,
-credentials, badges, screenshots or external communications.
+## Documents
 
-Use accessible, concise Markdown with one title and valid local paths. Preserve
-useful existing content and asset rights. Images are optional; do not create or
-alter a logo merely to decorate the README. A text-only project entry is valid.
+| Document | Purpose |
+| --- | --- |
+| [Requirements](REQUIREMENTS.md) | Product requirements |
+| [Design](DESIGN.md) | Presentation and interaction |
+| [Architecture](ARCHITECTURE.md) | Technical structure and diagrams |
+| [ADRs](docs/adr/) | Architecture decisions |
+| [Security](SECURITY.md) | Controls and threat model |
+| [Clarifications](docs/clarifications.md) | Questions, decisions and current state |
+| [Baseline review](docs/baseline-review.md) | Reviewed specification and baseline reference |
+| [Agent instructions](AGENTS.md) | Engineering rules and commands |
 
-Check each local link and stated command against available files/tools. Explain
-what was executed and what P10 will install. Save the next step in the journal.
-Writable: README.md and docs/clarifications.md next-step note.
+Omit the ADR/AGENTS rows until their targets exist; never add planned entries.
+Change this entry page only when its phase or stable navigation changes.
+Keep baseline references, current stages, open questions/blockers, progress logs
+and command lists out of README.md; the linked owners hold that information.
+Do not duplicate specialist rules or claim unavailable features, deployment or
+compliance. Preserve useful existing content and asset rights within this schema;
+do not create decorative assets.
+
+If Git is used and P07 left its baseline reference pending, verify the actual
+reviewed commit/tag and fill only the reference entry in docs/baseline-review.md;
+do not assume HEAD. If unverifiable, leave it pending and explain in the journal.
+Without Git, preserve the local review checkpoint. Keep these details out of README.md.
+
+Check the schema, phase notice, owner links and absence of volatile state;
+record actual checks and the baseline handoff in the journal.
+Writable: README.md, docs/clarifications.md and, when P07 left the baseline
+reference pending, the reference entry in docs/baseline-review.md.
 No application code, new architecture, asset conversion or external publication
 unless specifically authorized separately. Next: P09 agent command contract.
 ```

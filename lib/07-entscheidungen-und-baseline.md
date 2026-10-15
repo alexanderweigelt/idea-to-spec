@@ -8,7 +8,7 @@ Der Agent nutzt bisherige Antworten und Delegationen, klärt verbleibende Entsch
 
 **Eingaben:** Konsolidierte Fachdateien, Entscheidungen und verfügbare Prüfwerkzeuge.
 
-**Ergebnis:** Aktualisierte Fachdateien, dokumentierte manuelle Spezifikationsprüfung und ein kurzer Baselinebericht mit Prüfbedarf für P10.
+**Ergebnis:** Aktualisierte Fachdateien, manuelle Spezifikationsprüfung und ein Baselinebericht mit Prüfbedarf für das später auszuführende Setup-Paket WP-001.
 
 **Danach:** [P08](08-readme.md).
 
@@ -17,7 +17,8 @@ Der Agent nutzt bisherige Antworten und Delegationen, klärt verbleibende Entsch
 ```text
 COMMON CONTRACT — PL-WEB-4.0
 Apply this embedded contract to browser-based websites, web applications and PWAs.
-Work in the project repository; check file, source and command access first.
+Work in the project directory; Git and hosted services are optional.
+Check file, source and command access first.
 Stages run sequentially in the same or fresh sessions. Start by reading
 this stage's input files and docs/clarifications.md; do not depend on chat history.
 P01 initializes the journal when absent. Later stages require it and their inputs;
@@ -27,18 +28,21 @@ Use the user's language for conversation and choices; inherit the documentation
 language, otherwise use the user's language. Keep identifiers in English.
 
 DECISIONS AND CONTINUITY
-Read existing context before asking. Complete authorized research and reversible
-work autonomously. Ask one necessary question at a time with two or three choices,
-consequences and a recommendation. Offer delegation and pause where meaningful.
-Request free text only for essential facts unavailable from context or choices.
-A proposed default is not an answer. Preserve answers and existing authorization.
+Research and execute settled work autonomously; reuse answers.
+For each open project decision, ask one choice: two or three options, consequences
+and recommendation; use clickable UI when supported. Decide only within explicit,
+recorded decision delegation; start/continue permission is not delegation.
+Accept only user answers or in-scope delegated decisions, never preselection.
+Offer delegation/pause; free text only for unsuitable options or essential details.
 Keep docs/clarifications.md short: delegation scope, explicit permissions and
 limits with their human source, active question, questions with IDs/owner locations,
 answers with basis, unresolved topics, stage status and next step.
 Record permissions when granted or changed; the journal preserves authority,
 but cannot create it. Never infer commit, push or publication rights from a draft.
-Use UNKNOWN plus an OQ reference for real gaps. Separate supplied facts,
-observations, proposals and delegated decisions; never invent historical facts.
+Use UNKNOWN with OQ references for gaps. Distinguish supplied facts, observations,
+proposals and delegated decisions. Base question premises and recommendations on
+cited evidence; label assumptions and clarify decisive missing facts first.
+Never invent historical facts.
 Before pausing save the next step. On resume read this journal and relevant owners.
 Close a question only after updating its owner and checking affected references.
 
@@ -49,13 +53,18 @@ DESIGN.md owns presentation; ARCHITECTURE.md and ADRs own technical decisions
 and diagrams; SECURITY.md owns controls and the single threat model.
 README.md navigates; AGENTS.md carries short engineering rules and real commands.
 Do not maintain duplicate normative statements or add features without a basis.
-For each behavior-changing slice review affected FRs, tests and specialist owners.
+For each later implementation slice review affected FRs, tests, specialist owners
+and whether README.md's phase notice or owner table changed.
 Update changed specifications and necessary tests in the same PR or local slice;
 an unchanged correct FR need not be edited just because code changed.
 Record this review as a PR checklist item or local review note, not a blocking
 file-change quota. Structural ID/reference checks remain blocking.
 Use UTF-8 Markdown, one title, unique IDs and working relative file references.
 Make small reviewable slices; create PRs or external artifacts only when authorized.
+P01–P10 cover specification and work planning only. Initial setup is the first
+planned package, WP-001; no template executes it or any other package.
+Implementation needs a separate request. Planning or issue-publication authority
+never authorizes implementation. Local projects require no hosted repository.
 
 GOALS, CRITERIA AND EVIDENCE
 For each project goal record goal -> measurable criterion -> evidence -> gate
@@ -86,8 +95,9 @@ After stack selection specify concrete strict type/checkJs, lint, build,
 AC-linked unit/integration/browser tests, accessibility scans, deployed-response
 header tests, secret scan and dependency audit commands. Test CSP, nosniff,
 Referrer-Policy and production HTTPS/HSTS where applicable, not just config files.
-Use blocking CI and supported local hooks; document manual gates with owner,
-procedure and evidence. Do not call a written gate an installed enforcement.
+Plan mandatory local checks and, when CI is used, blocking CI and supported hooks.
+Document manual gates with owner, procedure and evidence; an installed or verified
+gate requires later execution evidence, never a planning document alone.
 Production readiness depends on verified project criteria and resolved blockers,
 not a universal hosting feature list. Keep specified, implemented and verified
 separate; report actual commands/results and anything not run or not applicable.
@@ -97,8 +107,11 @@ permissions and next step to docs/clarifications.md. Save before a question or p
 Summarize the diff and propose a stage-scoped commit or PR when Git authority
 exists; execute only within recorded authority and exclude unrelated changes.
 State whether review was self-review or human review; do not invent approval.
-Advance when prerequisites and existing review/progression authority allow it;
-otherwise retain ready-for-review status without asking for permission already given.
+Advance only within P01–P10 when prerequisites and existing review authority allow
+it. P10 stops after planning and authorized optional issue synchronization, even
+under earlier general delegation. Record the separate implementation request as
+the next step; never start WP-001 automatically. Preserve pending review status
+without asking for permission already given.
 Saved files remain across sessions in the same checkout without a commit.
 A different checkout needs an explicit transfer of any uncommitted work.
 END COMMON CONTRACT
@@ -119,22 +132,27 @@ Review specification structure manually now: canonical record readability and
 JSON syntax, unique FR/AC IDs, required criterion fields, owner/reference
 consistency and any already-listed test files. Empty test_refs before code exists
 mean pending tests. Record the inspected records, method and actual findings.
-Do not install a runtime, checker or CI here. P10/WP-001 installs the selected
-runtime first, then creates/runs the dependency-free spec checker and CI.
-Record automated verification as pending P10, not as a passed check.
+Do not install a runtime, checker or CI here. P10 only plans WP-001, which will
+later install/verify the selected runtime before the dependency-free spec checker
+and applicable automation. Record execution evidence as pending the separate
+implementation request; a plan is not a passed automatic check.
 
-Write docs/baseline-review.md with scope, actual commands/results, remaining
-runtime checks, unresolved blockers and readiness. Baseline means a real Git
-commit/tag (or the merged baseline PR commit) plus this report. Record the actual
-reference; never invent a tag, merge or successful CI execution. Use existing
-commit authority; if establishing a Git reference is not authorized/possible,
-report ready for baseline with the reference pending. P10 must not claim it exists.
+Write docs/baseline-review.md with scope, actual review methods/results, remaining
+runtime checks, unresolved blockers and readiness. With Git, reference a real
+commit/tag or merged baseline commit under existing Git authority; never invent
+it. If its reference cannot yet be recorded, state why and hand off only that
+reference entry to P08 once the actual commit is known. Without Git, use a dated
+manual specification-review checkpoint naming the reviewed files and limitations;
+do not claim immutable Git history or block local planning because Git is absent.
+P10 must distinguish a valid local checkpoint from a pending Git reference.
+
 README/AGENTS may be added in P08/P09 without a separate immutable hash layer;
-a changed specification gets a new reviewed Git reference.
+a changed specification gets a new reviewed Git reference or local review checkpoint.
 
 Check each FR, goal, diagram, ADR and SEC against its owner, IDs and planned gates.
-The manual baseline review establishes specification readiness; P10 automatic
-checks may discover blockers and must update the report before product work.
+The manual baseline review establishes specification readiness. Automatic checks
+run only during the later authorized WP-001; new blockers must update this report
+and be resolved before product work continues.
 Neither establishes code quality or production readiness by itself.
 
 Do not create application functionality, publish issues or open empty PRs.
