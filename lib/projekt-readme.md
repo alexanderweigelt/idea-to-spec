@@ -1,16 +1,14 @@
-# P08 – Projekt-README
+# Projekt-README
 
 ## Anleitung
 
 **Ziel:** Eine stabile Einstiegsseite mit Projektzweck, Phasenhinweis und Dokumentnavigation schaffen.
 
-Die README beschreibt den Projektzweck und verlinkt die maßgeblichen Dokumente. Laufender Stand, offene Punkte und Kommandos bleiben in den zuständigen Dateien. Bei einer Übergabe aus P07 darf der tatsächliche Baseline-Bezug im Baselinebericht nachgetragen werden.
+Die README beschreibt den Projektzweck und verlinkt die maßgeblichen Dokumente. Laufender Stand, offene Punkte und Kommandos bleiben in den zuständigen Dateien. Ein offener Baseline-Bezug darf in einem vorhandenen Baselinebericht nachgetragen werden.
 
-**Eingaben:** Geprüfte Spezifikation, bestätigte Projektphase und Baselinebericht aus P07.
+**Eingaben:** Bestätigter Projektzweck und Projektphase sowie vorhandene Dokumente.
 
 **Ergebnis:** Stabile README.md mit Dokumententabelle und gültigen Verweisen; gegebenenfalls nachgetragener Baseline-Bezug im Baselinebericht.
-
-**Danach:** [P09](09-agent-anweisungen.md).
 
 ## Kopierbarer Prompt
 
@@ -19,11 +17,12 @@ COMMON CONTRACT — PL-WEB-4.0
 Apply this embedded contract to browser-based websites, web applications and PWAs.
 Work in the project directory; Git and hosted services are optional.
 Check file, source and command access first.
-Stages run sequentially in the same or fresh sessions. Start by reading
-this stage's input files and docs/clarifications.md; do not depend on chat history.
-P01 initializes the journal when absent. Later stages require it and their inputs;
-if a required input is missing or unusable, stop dependent work and name the
-prerequisite stage. Preserve useful drafts without claiming stage completion.
+Run only the requested task, in this or a fresh session. Inspect the filesystem
+for relevant artifacts and read them and the journal when present; do not depend
+on chat history. Create or update this task's own output artifact. Paths below
+are defaults; reuse equivalent existing project documents.
+Clarify missing essential information; no other library prompt is a prerequisite.
+Skip inapplicable concerns and documents instead of creating them for completeness.
 Use the user's language for conversation and choices; inherit the documentation
 language, otherwise use the user's language. Keep identifiers in English.
 
@@ -34,9 +33,9 @@ and recommendation; use clickable UI when supported. Decide only within explicit
 recorded decision delegation; start/continue permission is not delegation.
 Accept only user answers or in-scope delegated decisions, never preselection.
 Offer delegation/pause; free text only for unsuitable options or essential details.
-Keep docs/clarifications.md short: delegation scope, explicit permissions and
-limits with their human source, active question, questions with IDs/owner locations,
-answers with basis, unresolved topics, stage status and next step.
+Keep or initialize docs/clarifications.md with delegation scope, explicit permissions
+and limits with their human source, active question, question IDs/owner locations,
+answers with basis, unresolved topics, task status and next useful action.
 Record permissions when granted or changed; the journal preserves authority,
 but cannot create it. Never infer commit, push or publication rights from a draft.
 Use UNKNOWN with OQ references for gaps. Distinguish supplied facts, observations,
@@ -47,32 +46,35 @@ Before pausing save the next step. On resume read this journal and relevant owne
 Close a question only after updating its owner and checking affected references.
 
 OWNERS AND CHANGE
-Canonical product requirements live in docs/requirements/FR-*.md; REQUIREMENTS.md
-is their linked overview. Keep FR, AC, OQ, ADR, SEC, T and FIND IDs stable.
+For new product requirements use docs/requirements/FR-*.md and REQUIREMENTS.md
+as their linked overview; preserve equivalent existing owners and formats.
+Keep existing FR, AC, OQ, ADR, SEC, T and FIND IDs stable.
 DESIGN.md owns presentation; ARCHITECTURE.md and ADRs own technical decisions
 and diagrams; SECURITY.md owns controls and the single threat model.
 README.md navigates; AGENTS.md carries short engineering rules and real commands.
-Do not maintain duplicate normative statements or add features without a basis.
+Use project artifacts and activities in project files, not library identifiers
+or instructions to run another prompt. Do not duplicate rules or invent features.
 For each later implementation slice review affected FRs, tests, specialist owners
-and whether README.md's phase notice or owner table changed.
+and, when present, README.md's phase notice or owner table.
 Update changed specifications and necessary tests in the same PR or local slice;
 an unchanged correct FR need not be edited just because code changed.
 Record this review as a PR checklist item or local review note, not a blocking
 file-change quota. Structural ID/reference checks remain blocking.
 Use UTF-8 Markdown, one title, unique IDs and working relative file references.
 Make small reviewable slices; create PRs or external artifacts only when authorized.
-P01–P10 cover specification and work planning only. Initial setup is the first
-planned package, WP-001; no template executes it or any other package.
-Implementation needs a separate request. Planning or issue-publication authority
-never authorizes implementation. Local projects require no hosted repository.
+These templates produce specifications and plans, not implementation or setup.
+Implementation needs a separate request; planning or issue-publication authority
+never authorizes it. Local projects require no hosted repository.
 
 GOALS, CRITERIA AND EVIDENCE
-For each project goal record goal -> measurable criterion -> evidence -> gate
--> versioned primary source in the responsible file. AGENTS.md summarizes gates.
-Required goals: correct specified behavior, usable accessible interaction,
-secure delivery and data handling, maintainable code and reproducible changes.
-Accessibility target: WCAG 2.2 AA, https://www.w3.org/TR/WCAG22/; automated scans
-cover all routes and relevant states, supplemented by owned manual checks.
+For goals addressed by this task record goal -> measurable criterion -> evidence
+-> gate -> versioned primary source in the responsible file. Agent instructions
+summarize applicable gates when present.
+Goals: correct specified behavior, secure delivery and data handling,
+maintainable code and reproducible changes; usable accessible interaction where
+there is a user interface. Apply only standards and checks relevant to the scope.
+For user interfaces target WCAG 2.2 AA, https://www.w3.org/TR/WCAG22/; automated
+route/state scans complement owned manual checks.
 Use OWASP ASVS 5.0.0 to derive project-specific SEC requirements from actual
 assets, entry points, data and trust boundaries. No universal ASVS level or
 full-control matrix is required. Record selection rationale and gaps; small
@@ -84,40 +86,37 @@ This digest checks source integrity, not application compliance.
 Use semantic WHATWG HTML, HTTP RFC 9110, TLS RFC 8446/9325 and applicable NIST
 SSDF 1.1 practices. Use EARS-style requirements, Given/When/Then criteria,
 Google DESIGN.md alpha at 9bf8eae67128b6cc55ad9bf86665767deb4c11cd,
-arc42/C4, MADR 4.0.0 and OWASP Threat Modeling/STRIDE in their owning stages.
+arc42/C4, MADR 4.0.0 and OWASP Threat Modeling/STRIDE for the relevant artifacts.
 For real APIs or embedded product AI, add relevant primary interface/security
 specifications. AI-generated code requires the same review and checks.
 Honor actual customer, legal and organizational obligations; map accessible
 requirements to gates rather than implying ISO certification from norm names.
 
 EXECUTABLE GATES
-After stack selection specify concrete strict type/checkJs, lint, build,
-AC-linked unit/integration/browser tests, accessibility scans, deployed-response
-header tests, secret scan and dependency audit commands. Test CSP, nosniff,
-Referrer-Policy and production HTTPS/HSTS where applicable, not just config files.
+From agreed project goals and the actual stack derive applicable checks:
+strict type/checkJs, lint, build, AC-linked tests, accessibility, delivered-response
+security, secret scan and dependency audit. For applicable browser delivery tests,
+check CSP, nosniff, Referrer-Policy and HTTPS/HSTS on responses, not just config.
 Plan mandatory local checks and, when CI is used, blocking CI and supported hooks.
 Document manual gates with owner, procedure and evidence; an installed or verified
 gate requires later execution evidence, never a planning document alone.
 Production readiness depends on verified project criteria and resolved blockers,
 not a universal hosting feature list. Keep specified, implemented and verified
 separate; report actual commands/results and anything not run or not applicable.
-STAGE CLOSE AND REVIEW GATE
-At every stage end write completed work, actual checks, gaps, review status,
-permissions and next step to docs/clarifications.md. Save before a question or pause.
-Summarize the diff and propose a stage-scoped commit or PR when Git authority
+TASK CLOSE AND REVIEW
+Record completed work, actual checks, gaps, review status, permissions and next
+useful action in docs/clarifications.md. Save before a question or pause.
+Summarize the diff and propose a task-scoped commit or PR when Git authority
 exists; execute only within recorded authority and exclude unrelated changes.
 State whether review was self-review or human review; do not invent approval.
-Advance only within P01–P10 when prerequisites and existing review authority allow
-it. P10 stops after planning and authorized optional issue synchronization, even
-under earlier general delegation. Record the separate implementation request as
-the next step; never start WP-001 automatically. Preserve pending review status
-without asking for permission already given.
+Stop after the requested task. Do not launch another template or implementation
+automatically. Preserve pending review status; reuse existing permission.
 Saved files remain across sessions in the same checkout without a commit.
 A different checkout needs an explicit transfer of any uncommitted work.
 END COMMON CONTRACT
 
-STAGE — P08 PROJECT README
-Input check: P07 docs/baseline-review.md and the reviewed requirements/design/architecture/security owners.
+TASK — PROJECT README
+Input: confirmed project purpose, scope and phase, plus available project documents.
 
 Write README.md using this fixed structure in the project's documentation language:
 
@@ -139,23 +138,23 @@ Write README.md using this fixed structure in the project's documentation langua
 | [Baseline review](docs/baseline-review.md) | Reviewed specification and baseline reference |
 | [Agent instructions](AGENTS.md) | Engineering rules and commands |
 
-Omit the ADR/AGENTS rows until their targets exist; never add planned entries.
+Include only rows for existing targets; adapt labels and paths to the project.
 Change this entry page only when its phase or stable navigation changes.
-Keep baseline references, current stages, open questions/blockers, progress logs
+Keep baseline references, current tasks, open questions/blockers, progress logs
 and command lists out of README.md; the linked owners hold that information.
 Do not duplicate specialist rules or claim unavailable features, deployment or
 compliance. Preserve useful existing content and asset rights within this schema;
 do not create decorative assets.
 
-If Git is used and P07 left its baseline reference pending, verify the actual
+If an existing baseline report has a pending Git reference, verify the actual
 reviewed commit/tag and fill only the reference entry in docs/baseline-review.md;
 do not assume HEAD. If unverifiable, leave it pending and explain in the journal.
 Without Git, preserve the local review checkpoint. Keep these details out of README.md.
 
 Check the schema, phase notice, owner links and absence of volatile state;
 record actual checks and the baseline handoff in the journal.
-Writable: README.md, docs/clarifications.md and, when P07 left the baseline
-reference pending, the reference entry in docs/baseline-review.md.
+Writable: README.md, docs/clarifications.md and a pending reference entry in an
+existing docs/baseline-review.md.
 No application code, new architecture, asset conversion or external publication
-unless specifically authorized separately. Next: P09 agent command contract.
+unless specifically authorized separately.
 ```

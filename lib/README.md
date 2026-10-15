@@ -1,154 +1,128 @@
 # AI Prompt Library – Anwendung
 
-Die Library führt von der Projektidee zu geprüften Spezifikationen und einem
-vollständigen Arbeitsplan. Der Agent erledigt Vorarbeit und delegierte
-Entscheidungen; notwendige Nutzerentscheidungen werden per Auswahl geführt.
+Wähle den Prompt für die aktuelle Aufgabe. Jeder Textblock ist eigenständig
+nutzbar und enthält die gemeinsame Qualitätsgrundlage. Kein Prompt setzt die
+Ausführung eines anderen voraus. Benötigt werden fachlich ausreichende Eingaben,
+die auch aus bestehenden Dokumenten oder deinem Projektkontext stammen können.
+Jeder Prompt erstellt oder aktualisiert seine eigene Ergebnisdatei. Der Agent
+prüft im Dateisystem, welche anderen Artefakte bereits vorliegen, und liest daraus
+die für seine Aufgabe relevanten Informationen. Fehlende Dateien allein erzwingen
+keinen weiteren Prompt-Lauf.
 
-## Geltungsbereich und Endgrenze
+## Promptübersicht und empfohlener Ablauf
 
-P01 bis P09 erstellen und prüfen die fachliche und technische Grundlage.
-P10 erstellt den Arbeitsplan und fragt nach optionalen verknüpften Issues.
-**Damit endet die Promptfolge. Sie führt kein Umsetzungspaket aus.**
+Bei einer neuen Idee sind Anforderungen ein sinnvoller Anfang. Darauf können
+Gestaltung, Architektur und Sicherheit aufbauen; Review und Klärung schaffen
+eine belastbare Grundlage für den Arbeitsplan. README und Agent-Anweisungen
+werden ergänzt, sobald die nötigen Informationen vorliegen.
 
-WP-001 ist das initiale Projekt-Setup und wird ausschließlich geplant. Laufzeit,
-Abhängigkeiten, Projektgerüst, Prüfwerkzeuge und gegebenenfalls CI werden erst
-mit einem gesonderten Umsetzungsauftrag eingerichtet. Anschließend folgen die
-geplanten Produktfunktionen. Dieser Auftrag kann in derselben oder einer neuen
-Session erfolgen; eine allgemeine frühere Delegation startet ihn nicht automatisch.
-Bereits vorhandene Einrichtung und belegte Vorarbeiten werden erhalten; WP-001
-plant dafür nötige Prüfung oder Anpassung statt einer erneuten Initialisierung.
+Die Tabellenreihenfolge ist eine Orientierung. Wähle nur passende Aufgaben und
+wiederhole sie bei Bedarf. Ohne Benutzeroberfläche entfällt beispielsweise das
+Design; Architektur, Sicherheit und Planung arbeiten mit dem übrigen Kontext.
+Ein belastbarer Arbeitsplan braucht geklärte Ziele und technische Entscheidungen.
+Fehlende wesentliche Informationen werden geklärt, ohne andere Prompts zu erzwingen.
 
-Die Fachprompts können später für Spezifikationsänderungen erneut genutzt werden;
-dadurch entsteht ebenfalls kein Auftrag zur Codeumsetzung. Lokale Projektordner
-funktionieren ohne Git, GitHub oder GitLab. Mit Git wird ein echter Baseline-Bezug
-verwendet; ohne Git dokumentiert ein datierter Reviewstand die geprüften Dateien
-und seine Grenzen, ohne unveränderliche Git-Historie zu behaupten.
-
-## Ausführungsreihenfolge
-
-Die Schritte folgen zeitlich aufeinander und können in einer gemeinsamen oder
-in getrennten Sessions mit Zugriff auf dieselben Projektdateien laufen.
-
-| Schritt | Prompt | Ergebnis |
+| Prompt | Ergebnisdatei | Inhalt |
 | --- | --- | --- |
-| P01 | [Projektaufnahme und Anforderungen](01-projektaufnahme.md) | REQUIREMENTS.md, kanonische FR-Datensätze und Entscheidungsjournal. |
-| P02 | [Anforderungsvorlage](02-anforderungsvorlage.md) | TEMPLATE.md und vereinheitlichte Anforderungsdatensätze. |
-| P03 | [Designgrundlage](03-designgrundlage.md) | DESIGN.md mit Tokens, Komponenten und prüfbaren Gestaltungszielen. |
-| P04 | [Architektur und Entscheidungen](04-architektur-und-diagramme.md) | ARCHITECTURE.md, Diagramme und notwendige ADRs. |
-| P05 | [Projektbezogene Sicherheit](05-sicherheit.md) | SECURITY.md mit Kontrollen, Nachweisplan und einem Bedrohungsmodell. |
-| P06 | [Konsolidierung und Modellreview](06-konsolidierung-und-threat-modeling.md) | Abgeglichene Fachdateien und nachvollziehbare Befunde. |
-| P07 | [Entscheidungen und Baseline](07-entscheidungen-und-baseline.md) | Manuell geprüfter Spezifikationsstand; automatische Prüfung für das spätere WP-001 vorgemerkt. |
-| P08 | [Projekt-README](08-readme.md) | Stabile Einstiegsseite mit Phasenhinweis, Dokumententabelle und Verweisen. |
-| P09 | [Agent-Anweisungen und Prüfvertrag](09-agent-anweisungen.md) | AGENTS.md mit geplanten Kommandos, Review- und Abgleichregeln. |
-| P10 | [Arbeitsplan und Übergabe](10-arbeitsplan-und-uebergabe.md) | Vollständiger Arbeitsplan mit geplantem WP-001; dokumentierte Issue-Auswahl und optional verknüpfte Issues. |
+| [Projektaufnahme und Anforderungen](projektaufnahme.md) | REQUIREMENTS.md | Fachliche Anforderungen mit beobachtbaren Kriterien und offenen Fragen. |
+| [Anforderungsvorlage](anforderungsvorlage.md) | docs/requirements/TEMPLATE.md | Einheitliche Vorlage und entsprechend aufbereitete Anforderungsdatensätze. |
+| [Designgrundlage](designgrundlage.md) | DESIGN.md | Gestaltung und zugängliche Interaktion für die benötigte Benutzeroberfläche. |
+| [Architektur und Entscheidungen](architektur-und-diagramme.md) | ARCHITECTURE.md | Technische Struktur, begründete Entscheidungen und passende Diagramme. |
+| [Projektbezogene Sicherheit](sicherheit.md) | SECURITY.md | Sicherheitsanforderungen, Bedrohungsmodell und geplante Nachweise. |
+| [Konsolidierung und Modellreview](konsolidierung-und-threat-modeling.md) | docs/specification-review.md | Abgeglichene Spezifikationen und nachvollziehbare Befunde. |
+| [Entscheidungen und Baseline](entscheidungen-und-baseline.md) | docs/baseline-review.md | Geklärte Blocker und manuell geprüfter Spezifikationsstand. |
+| [Projekt-README](projekt-readme.md) | README.md | Stabile Einstiegsseite mit Zweck, Phase und Dokumentnavigation. |
+| [Agent-Anweisungen](agent-anweisungen.md) | AGENTS.md | Kompakte Entwicklungsregeln und projektbezogene Prüfkommandos. |
+| [Arbeitsplan und Übergabe](arbeitsplan-und-uebergabe.md) | docs/work-plan.md | Umsetzungspakete, lokale Nachverfolgung und optional verknüpfte Issues. |
 
-## Start und Fortsetzung
+## Nutzung und Fortsetzung
 
-1. Öffne den Projektordner mit der Idee oder vorhandenen Dateien.
-2. Kopiere den vollständigen Textblock von P01 in den Coding-Agenten. Die
-   gemeinsame technische Grundlage ist enthalten.
-3. Folge P02 bis P10. Der Agent liest jeweils docs/clarifications.md und die
-   Eingabedateien. Fehlende Voraussetzungen werden nicht erfunden.
-4. Antworten, Delegation und tatsächlich erteilte Befugnisse mit ihrem Umfang
-   bleiben im Journal erhalten. Dokumentation kann keine Befugnisse erteilen.
-5. Nach jedem Schritt stehen Ergebnisse, tatsächliche Prüfungen, Reviewstatus
-   und nächster Schritt im Journal. Bei Git-Befugnis wird ein passender Commit
-   oder PR vorgeschlagen; lokale Arbeit braucht keinen gehosteten Reviewprozess.
-6. Gespeicherte Dateien bleiben im selben Arbeitsverzeichnis auch ohne Commit
-   erhalten. Ein anderer Checkout benötigt die Übergabe uncommitteter Arbeit.
-7. Nach P10 endet der Auftrag. Ein späterer Umsetzungsauftrag liest AGENTS.md und
-   den Arbeitsplan und beginnt mit dem noch nicht ausgeführten WP-001.
+1. Öffne den Projektordner und wähle eine passende Vorlage.
+2. Kopiere ihren vollständigen Textblock in den Coding-Agenten. Er prüft die
+   vorhandenen Artefakte selbst; ergänze nur Informationen, die daraus fehlen.
+3. Der Agent nutzt vorhandene Antworten und klärt offene Entscheidungen per
+   Auswahl. Autonome Entscheidungen benötigen eine ausdrückliche Delegation.
+4. Ergebnisse, Fragen, Befugnisse, tatsächliche Prüfungen und nächste sinnvolle
+   Arbeit bleiben in docs/clarifications.md oder einem vorhandenen gleichwertigen
+   Journal erhalten. Eine neue Session braucht keine Chat-Historie.
+5. Der Auftrag endet mit der gewählten Aufgabe. Ein weiterer Prompt oder die
+   Umsetzung startet durch einen neuen Auftrag.
 
-## Qualität und Dokumentzuständigkeiten
+Dateinamen in den Prompts sind Vorgaben für neue Dokumente. Gleichwertige
+Projektdateien können weiterverwendet werden. Erzeugte Dokumente nennen fachliche
+Aufgaben und Projektartefakte; sie setzen keine Kenntnis dieser Library voraus.
+Bei Git-Befugnis schlägt der Agent einen passenden Commit oder PR vor. Gespeicherte
+Dateien bleiben im selben Arbeitsverzeichnis auch ohne Commit erhalten; ein anderer
+Checkout benötigt die Übergabe uncommitteter Arbeit.
 
-FR-Datensätze besitzen das fachliche Verhalten, DESIGN.md die Gestaltung,
-ARCHITECTURE.md/ADRs die Technik und Diagramme, SECURITY.md die Kontrollen und
-das einzige Bedrohungsmodell. README.md bleibt eine stabile Navigation.
+## Grenze zur Umsetzung
 
-P07 prüft den Spezifikationsstand manuell. P09 nennt konkrete geplante Kommandos;
-P10 dokumentiert deren geplante Einrichtung und Prüfung in WP-001. Laufzeitinstallation,
-automatischer Spec-Check und weitere Gates werden erst im gesondert beauftragten
-Setup ausgeführt. Bis dahin bleiben sie geplant und unbelegt. Lokale Projekte
-haben dieselben Qualitätsziele; der Einsatz einer CI-Plattform ist optional.
+Alle Vorlagen erstellen oder prüfen Spezifikationen und Pläne. Sie installieren
+keine Werkzeuge und führen weder Setup noch Produktentwicklung aus. Der
+Arbeitsplan sieht WP-001 als initiales Setup vor; vorhandene Einrichtung wird
+entsprechend ihrem tatsächlichen Stand berücksichtigt.
 
-Spätere Codeänderungen reviewen betroffene FRs, Tests und Fachdateien sowie
-README-Phase und Dokumentnavigation. Nötige Anpassungen erfolgen gemeinsam;
-korrekte Dateien brauchen keine künstlichen Änderungen. Struktur- und
-Referenzfehler bleiben blockierend. Ein Plan belegt keine Produktionsreife.
+Ein gesonderter Umsetzungsauftrag nutzt den Arbeitsplan und vorhandene
+Agent-Anweisungen. Laufzeit, Projektgerüst, Prüfbefehle und gegebenenfalls CI
+werden erst dann eingerichtet und nachgewiesen. Geplante Prüfungen gelten bis
+zur tatsächlichen Ausführung als offen. Ein Plan belegt keine Produktionsreife.
 
-## Optionale Issues und Abgleich
+## Dokumentzuständigkeiten und Nachverfolgung
 
-Nach Arbeitsplan und konkreter Issue-Vorschau fragt P10 ausdrücklich nach einer
-Auswahl: **nur lokaler Plan (empfohlen), GitHub oder GitLab**. Eine bereits
-explizit beantwortete Auswahl wird wiederverwendet. Ein erkannter Git-Remote
-oder Schweigen genügt nicht. Ohne Zustimmung entstehen keine externen Issues.
-Fehlender Zugang verhindert die lokale Planübergabe nicht.
+Anforderungen besitzen das fachliche Verhalten, Design die Gestaltung,
+Architektur und ADRs die Technik samt Diagrammen, Sicherheit die Kontrollen
+und das Bedrohungsmodell. Nur relevante Dokumente werden benötigt. README
+navigiert, Agent-Anweisungen verlinken Entwicklungsregeln. Der Arbeitsplan
+besitzt Stand und Nachverfolgung.
 
-Verknüpfte Issues erhalten stabile WP-/Remote-Zuordnungen. Der Arbeitsplan
-beschreibt gemeinsame Felder und Änderungsbefugnisse; docs/issue-map.md hält
-nur bei verknüpftem Betrieb die letzte erfolgreich gemeinsame Fassung fest.
-AGENTS.md verlangt den Abgleich bei Wiederaufnahme, vor Änderungen am Plan
-oder Issue und vor/nach späterer Paketarbeit:
+Lokale Projekte benötigen weder Git noch einen Hostingdienst. Ein Baseline-Review
+verwendet mit Git einen tatsächlichen Commit-Bezug, andernfalls einen datierten
+lokalen Reviewstand mit benannten Grenzen.
 
-- Einseitige Änderungen werden innerhalb der Befugnisse zur anderen Seite
-  übernommen; Änderungen verschiedener Felder lassen sich kombinieren.
-- Widersprüchliche Änderungen desselben Feldes führen zu einer Auswahlfrage
-  mit lokaler, externer und begründet kombinierter Variante.
-- Geänderte Fachanforderungen werden nach befugter Entscheidung auch in die
-  kanonischen Fachdateien übernommen. Erfasste PO-/PM-Befugnisse werden dabei
-  berücksichtigt; Schreibzugriff auf den Dienst allein ist keine Fachfreigabe.
-  Issue-Inhalte erteilen keine Ausführungsrechte.
-- Vor externen Schreibvorgängen wird erneut gelesen, danach beidseitig geprüft.
-  Konflikte, unsichere Schreibresultate und fehlender Zugriff bleiben offen;
-  die letzte gemeinsame Fassung wird erst nach bestätigtem Erfolg fortgeschrieben.
-  Lassen die Werkzeuge keinen sicheren Schutz konkurrierender Änderungen zu,
-  bleibt ein vorbereiteter Patch zur Klärung offen statt blind überschrieben zu werden.
-- Gelöschte oder bereits angelegte Issues werden nicht blind neu erstellt.
-  Ein geschlossenes Issue ist kein Nachweis einer implementierten Funktion.
-
-Dies ist ein Abgleich durch den beauftragten Agenten. Solange er nicht läuft,
-gibt es keine garantierte Hintergrund- oder Echtzeitsynchronisierung. Änderungen
-durch Product Owner oder Projektmanagement werden beim nächsten Abgleich erfasst.
+Der Arbeitsplan-Prompt fragt ausdrücklich, ob zusätzlich Issues in GitHub oder
+GitLab angelegt werden sollen; eine bereits beantwortete Auswahl wird übernommen.
+Ohne Zustimmung bleibt es beim lokalen Plan. Verknüpfte Issues werden nach den
+Regeln im Arbeitsplan abgeglichen: einseitige Änderungen innerhalb erteilter
+Befugnisse übernehmen, widersprüchliche Änderungen gemeinsam klären und nur
+bestätigte Ergebnisse als synchron melden. Der Abgleich erfolgt bei Wiederaufnahme,
+Plan-/Issue-Änderungen und vor/nach späterer Paketarbeit, ohne Hintergrunddienst.
 
 ## Prüfprotokoll für den Funktionsdurchlauf
 
-Der Nutzer prüft die Library in ScannerPWA. Die Library bleibt projektunabhängig.
-Dieses Protokoll wird ab P01 mitgeführt, etwa in docs/clarifications.md im
-Zielprojekt. Je Prüfung: erfüllt / nicht erfüllt / nicht geprüft, Datei-/Standbeleg,
-ausgeführte Aktion und Lücke. Fragen, Freitext, Unterbrechungen und Dauer zählen.
+Der Nutzer prüft die Library in ScannerPWA. Dokumentiere pro angewendetem Prompt
+und Prüfung: erfüllt / nicht erfüllt / nicht geprüft / nicht anwendbar, mit
+Datei-/Standbeleg, tatsächlicher Aktion und verbleibender Lücke. Zähle Fragen,
+Freitext, Unterbrechungen und Dauer. Bewerte ausgelassene Aufgaben anhand des
+Projektumfangs, nicht als fehlende Pflichtschritte.
 
 | ID | Library-Prüfung | Bestanden, wenn … |
 | --- | --- | --- |
-| L01 | Einstieg und Reihenfolge | Alle zehn Schritte sind mit ihren Inputs ausführbar; lokale Nutzung benötigt keinen Host und die Planung setzt keine spätere Installation voraus. |
-| L02 | Entscheidungsdialog | Offene Entscheidungen werden einzeln mit Optionen, Folgen und Empfehlung abgefragt, wenn möglich per Klick. Autonomie benötigt ausdrückliche Entscheidungsdelegation; Startfreigaben reichen nicht. Freitext bleibt auf nötige Angaben beschränkt, Antworten werden wiederverwendet. |
-| L03 | Sessionwechsel | Mindestens ein späterer Schritt startet ohne Chat-Historie; Pause/Fortsetzung erhalten Fragen, Antworten, Befugnisse und nächsten Schritt. |
-| L04 | Gemeinsamer Vertrag | Alle zehn Abschnitte COMMON CONTRACT bis END COMMON CONTRACT sind vor Anwendung und nach Änderungen wortgleich. |
-| L05 | Konsistente Ergebnisse | Alle unten genannten Ergebnisse sind belegt und besitzen eindeutige Zuständigkeiten ohne unbehandelte Widersprüche. |
-| L06 | Planbare Prüfungen und Endgrenze | WP-001 enthält konkrete Einrichtungsschritte, Kommandos und Nachweise; P10 führt weder das Setup noch andere Pakete aus und behauptet keine neuen Laufzeitnachweise. |
-| L07 | Befugnisse und optionale Issues | Die Issue-Auswahl ist beantwortet oder ausdrücklich offen; externe Aktionen sind autorisiert, verknüpfte Änderungen werden abgeglichen und Konflikte sichtbar behandelt. |
+| L01 | Eigenständige Nutzung | Jeder angewendete Prompt erzeugt seine Ergebnisdatei und nutzt relevante vorhandene Artefakte ohne vorgeschriebene Library-Läufe. Ein Projekt ohne UI benötigt kein Design-Dokument; lokale Nutzung braucht keinen Host. |
+| L02 | Entscheidungsdialog | Offene Entscheidungen werden mit Optionen, Folgen und Empfehlung abgefragt. Autonomie benötigt ausdrückliche Entscheidungsdelegation; Antworten werden wiederverwendet. |
+| L03 | Sessionwechsel | Ein Prompt startet ohne Chat-Historie; Fortsetzung erhält Fragen, Antworten, Befugnisse und nächste Arbeit aus Projektdateien. |
+| L04 | Gemeinsamer Vertrag | Alle Abschnitte COMMON CONTRACT bis END COMMON CONTRACT sind wortgleich. |
+| L05 | Konsistente Ergebnisse | Die angewendeten Prompts liefern ihre unten genannten Ergebnisse; Projektdateien enthalten verständliche fachliche Bezüge ohne Library-Kennungen. |
+| L06 | Endgrenze | Keine Vorlage führt Setup oder Umsetzungspakete aus. Geplante Prüfungen gelten nicht als bestanden. |
+| L07 | Befugnisse und optionale Issues | Externe Aktionen sind autorisiert; die Issue-Auswahl und der Abgleich verknüpfter Änderungen bleiben nachvollziehbar. |
 
-L04 wird ohne Helper geprüft: P01 als Vergleich nehmen und den vollständigen
-Vertrag in P02 bis P10 wortgleich abgleichen; bei Änderungen alle Kopien pflegen.
+L04 wird ohne Helper geprüft: einen vollständigen gemeinsamen Vertrag als
+Vergleich nehmen und alle Kopien abgleichen; Änderungen in allen Kopien pflegen.
 
-| Schritt | Ergebnisprüfung 1 | Ergebnisprüfung 2 |
-| --- | --- | --- |
-| P01 | Nutzeraufgaben und Grenzen sind in Übersicht und kanonischen FRs erfasst. | Journal, offene Fragen und erteilte Befugnisse sind gesichert; kein Stack vorweggenommen. |
-| P02 | Vorlage und FRs nutzen dasselbe Format mit beobachtbaren Kriterien. | Bedeutungen, IDs und echte Referenzen bleiben erhalten; Beispiele sind keine Produktregeln. |
-| P03 | Design beschreibt benötigte Tokens, Komponenten und Zustände. | Bedienung und Zugänglichkeit haben geplante automatische und manuelle Nachweise. |
-| P04 | Architekturtext und Diagramme stimmen überein. | Angenommene Entscheidungen verweisen auf Antwort oder ausdrückliche Delegation; Alternativen und Stackregeln sind nachvollziehbar. |
-| P05 | Sicherheitsziele haben begründete Quellen, Durchsetzung und geplante Nachweise. | Ein Bedrohungsmodell verknüpft tatsächliche Risiken und Kontrollen. |
-| P06 | Befunde haben Fundstelle, Behandlung und Status. | Zielketten und bestehendes Modell sind reviewt; Selbstreview ist als solches erkennbar. |
-| P07 | Antworten und manuelle Prüfergebnisse stehen in den maßgeblichen Dateien. | Git-Bezug oder lokaler Reviewstand ist ehrlich dokumentiert; automatische Checks sind für das spätere WP-001 geplant. |
-| P08 | README enthält Zweck, Phasenhinweis, Dokumententabelle und gültige Verweise. | Flüchtiger Stand und Kommandos sind verlinkt; eine offene Git-Referenz wird nur im Baselinebericht nachgetragen. |
-| P09 | AGENTS.md beschreibt konkrete zukünftige Gates und verlinkt nötige Regeln. | README verlinkt AGENTS.md; spätere Paketarbeit beginnt mit Plan-/Issue-Abgleich und gesondertem Auftrag. |
-| P10 | Plan deckt Scope und Abhängigkeiten ab; WP-001 ist das erste Setup-Paket, vorhandene Evidenz bleibt erhalten und P10 führt kein Paket aus. | Issue-Auswahl ist dokumentiert, Zuordnungen und Abgleich sind im gewählten Modus nachvollziehbar; P10 endet ohne Setup-/Produktänderungen. |
+| Prompt | Ergebnisprüfung |
+| --- | --- |
+| Projektaufnahme | Nutzeraufgaben und Grenzen sind nachvollziehbar erfasst; Fragen und Befugnisse sind gesichert, kein Stack wird neu festgelegt. |
+| Anforderungsvorlage | Anforderungen nutzen beobachtbare Kriterien; Bedeutungen, IDs und Referenzen bleiben erhalten. |
+| Designgrundlage | Benötigte Gestaltung und Zustände sind konsistent; Zugänglichkeit hat passende geplante Nachweise. |
+| Architektur | Text und Diagramme stimmen überein; Entscheidungen haben eine Antwort oder ausdrückliche Delegation als Grundlage. |
+| Sicherheit | Tatsächliche Risiken sind mit Anforderungen, Durchsetzung und geplanten Nachweisen verknüpft. |
+| Konsolidierung | Die eigene Reviewdatei nennt Befunde mit Fundstelle, Behandlung und Status; Selbstreview ist erkennbar. |
+| Baseline | Der geprüfte Umfang und tatsächliche Ergebnisse sind dokumentiert; Git-Bezug oder lokaler Reviewstand sind ehrlich benannt. |
+| Projekt-README | Zweck, Phase und gültige Dokumentverweise bleiben stabil; flüchtiger Stand ist nur verlinkt. |
+| Agent-Anweisungen | Regeln und anwendbare Prüfkommandos sind nachvollziehbar; vorhandener Arbeitsplan und dessen Nachverfolgung sind verlinkt. |
+| Arbeitsplan | Pakete decken den Umfang und ihre Abhängigkeiten ab, bleiben unausgeführt und haben eine dokumentierte Issue-Auswahl. |
 
-Im Issues-Betrieb zusätzlich einseitige lokale/externe Änderungen, gleichzeitige
-widersprüchliche Änderungen, Wiederholungen und einen fehlgeschlagenen Abgleich
-prüfen. Im lokalen Modus werden diese optionalen Fälle begründet ausgenommen.
-
-**Abschluss:** Die Library besteht für den geprüften Modus erst mit Belegen für
-L01–L07 und alle Schrittergebnisse. Nicht getestete optionale Betriebsarten bleiben
-ausdrücklich offen. Die tatsächliche Wirksamkeit der später einzurichtenden Gates
-wird erst im gesonderten Setup-Auftrag nachgewiesen und gehört nicht zur Ausführung
-von P10. Bis zur abgeschlossenen Funktionsprüfung bleibt der Status „bedingt bestanden“.
+Im Issues-Betrieb zusätzlich einseitige Änderungen, Konflikte, Wiederholungen und
+fehlgeschlagenen Abgleich prüfen. Nicht getestete Betriebsarten bleiben offen.
+Die praktische Prüfung der entkoppelten Vorlagen steht noch aus; die Wirksamkeit
+später einzurichtender Prüfwerkzeuge wird erst während der beauftragten Umsetzung
+nachgewiesen.
