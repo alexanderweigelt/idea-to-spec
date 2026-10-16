@@ -19,7 +19,7 @@ Die Prompts sind agentenneutral und für Entwicklerinnen, Entwickler und Produkt
 ## Weitere Dateien
 
 - [REQUIREMENTS.md](REQUIREMENTS.md): Zielbild und Anforderungen an Idea to Spec selbst.
-- [CONTRIBUTER.md](CONTRIBUTER.md): Regeln für Mitwirkende.
+- [CONTRIBUTING.md](CONTRIBUTING.md): Regeln für Mitwirkende.
 - [AGENTS.md](AGENTS.md): Arbeitsanweisungen für Agenten, die an diesem Repository arbeiten.
 
 ## Lizenz

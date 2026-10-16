@@ -20,17 +20,31 @@ Danke für Ihr Interesse. Die oberste Grundlage ist [REQUIREMENTS.md](REQUIREMEN
 - Die Version steht nur in `lib/README.md`.
 - Formulierungen werden wörtlich gelesen: „sollte“ ist optional, „muss“ ist Pflicht. Nicht verschärfen.
 
+## Branch-Modell (Gitflow)
+
+- `main` enthält nur veröffentlichte, stabile Stände. Es wird nicht direkt darauf gearbeitet.
+- `develop` sammelt fertige Änderungen für die nächste Version.
+- `feature/<short-name>` für jede Änderung, abgezweigt von `develop` und dorthin zurückgeführt.
+- `release/<version>` zur Vorbereitung einer Version, danach nach `main` und `develop`.
+- `hotfix/<short-name>` für dringende Korrekturen, abgezweigt von `main`, danach nach `main` und `develop`.
+- Branch-Namen sind immer englisch, Kleinbuchstaben, mit Bindestrichen, zum Beispiel `feature/legal-prompt`.
+
+## Commits (Conventional Commits)
+
+- Commit-Nachrichten folgen [Conventional Commits](https://www.conventionalcommits.org/) und sind immer englisch: `<type>: <description>`, zum Beispiel `feat: add legal prompt`.
+- Erlaubte Typen: `feat`, `fix`, `docs`, `refactor`, `chore`.
+- Die Beschreibung steht im Imperativ, ohne Punkt am Ende. Ein Hinweis auf eine Anforderung kann in den Nachrichtentext.
+- Eine logische Änderung pro Commit. Ein Breaking Change wird mit `!` hinter dem Typ und `BREAKING CHANGE:` im Nachrichtentext gekennzeichnet.
+
 ## Änderungen einreichen
 
 - Halten Sie Änderungen klein und begründen Sie sie mit einer Anforderung aus `REQUIREMENTS.md`. Weniger ist besser: Lassen Sie weg, was keinen Nutzen hat.
-- Arbeiten Sie auf einem eigenen Branch, nicht direkt auf `main`.
-- Commit-Nachrichten folgen [Conventional Commits](https://www.conventionalcommits.org/) und sind englisch, zum Beispiel `feat: add legal prompt` oder `docs: fix guide step order`. Eine logische Änderung pro Commit.
 - Ändert sich ein Prompt, prüfen Sie, ob der Leitfaden in `lib/README.md` angepasst werden muss.
 - Neue Prompts oder Änderungen sollten Sie in einer neuen KI-Session per Copy-and-paste ausprobieren. Nur Angewendetes gilt als geprüft.
 
 ## Mit Agenten arbeiten
 
-Agenten, die an diesem Repository arbeiten, folgen [AGENTS.md](AGENTS.md). Sie committen, pushen oder löschen nicht ohne ausdrücklichen Auftrag.
+Agenten, die an diesem Repository arbeiten, folgen [AGENTS.md](AGENTS.md) und den Branch- und Commit-Regeln oben. Sie committen, pushen oder löschen nicht ohne ausdrücklichen Auftrag.
 
 ## Lizenz
 
