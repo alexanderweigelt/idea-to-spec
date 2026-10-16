@@ -170,9 +170,9 @@ Die Library muss aus der abgestimmten Spezifikation konkrete Arbeitspakete ablei
 
 - Jedes Paket beschreibt Ziel, Umfang, relevante Spezifikationsstellen, Abhängigkeiten, Abnahmekriterien und geplante Prüfungen.
 - Der Zuschnitt ermöglicht ein nachvollziehbar prüfbares Ergebnis.
+- Jedes Arbeitspaket nennt seine Vorgänger und eine grobe Komplexität (klein, mittel, groß). Pakete mit Komplexität groß werden weiter geschnitten.
 - Die fachliche Abdeckung und notwendige Ausführungsreihenfolge sind nachvollziehbar.
 - Die Umsetzung benötigt keine stillschweigenden neuen Produkt-, Architektur- oder Sicherheitsentscheidungen.
-- GitHub-Issues, bestimmte Paketgrößen und eine bestimmte Projektplattform sind keine Voraussetzung.
 
 ### REQ-010 – Praktischer Leitfaden
 
