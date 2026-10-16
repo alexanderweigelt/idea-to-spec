@@ -147,6 +147,7 @@ Die Library muss einen eigenen Arbeitsschritt zur gemeinsamen Prüfung und Absti
 
 - Anforderungen, Design, Architektur, Sicherheit und weitere vorhandene Beiträge werden auf Widersprüche, Lücken und gegenseitige Abhängigkeiten geprüft.
 - Jede verbindliche Vorgabe besitzt eine eindeutige zuständige Stelle. Andere Dokumente verweisen darauf.
+- Lehnt ein Fachprompt eine bestätigte Entscheidung eines anderen Beitrags ab, überschreibt er sie nicht. Er hält den Widerspruch als offene Frage (OQ) mit Bezug auf die betroffene Entscheidung (ADR) oder Anforderung (SEC, FR) fest, und der Benutzer entscheidet.
 - Offene Punkte werden mit Bezug, Auswirkung und notwendiger Klärung festgehalten.
 - Das Ergebnis ist eine konsistente Gesamtspezifikation. Diese darf aus mehreren verknüpften Dokumenten bestehen.
 
@@ -193,6 +194,8 @@ Die Vorlagen müssen für Webprojekte allgemein verwendbar bleiben. Projektspezi
 
 Umfang und Dokumentation müssen zum Vorhaben passen. Feste Anzahlen von Fachrollen, Diagrammen, Akzeptanzkriterien, Reviewrunden oder Modellen sind keine allgemeinen Pflichten.
 
+Für kleine Änderungen und Fehlerbehebungen beschreibt der Leitfaden einen kurzen Weg. Er lässt Schritte weg, deren Beitrag für den kleinen Umfang keinen Nutzen hat. Betroffene Anforderungen, Abnahmekriterien und Arbeitspakete werden trotzdem aktualisiert (REQ-006).
+
 ### Q-002 – Verlässliche Aussagen
 
 Die Prompts dürfen keine Funktionen, Fakten, Entscheidungen, Rollenrechte, Standardskennungen oder Prüfergebnisse erfinden.
@@ -238,7 +241,7 @@ Defaults (Stand 16.10.2026):
 | Sicherheit | OWASP ASVS 5.0, Stufe 2; Bedrohungsanalyse mit STRIDE | ASVS-Version nennen; Stufe 3 oder Abweichung nur begründet |
 | Barrierefreiheit | WCAG 2.2 Stufe AA | nur bei Benutzeroberfläche |
 | Recht | DSGVO bei Personenbezug von Personen in der EU; Lizenzprüfung für Projekt und Abhängigkeiten | keine Rechtsberatung; rechtliche Prüfung bleibt beim Menschen |
-| Agent-Anweisungen | AGENTS.md, agentenneutral, mit kurzem Verweis für Agenten mit anderer Eingabedatei | Gates nach Q-005 als konkrete Kommandos |
+| Agent-Anweisungen | AGENTS.md, agentenneutral, mit kurzem Verweis für Agenten mit anderer Eingabedatei; bei mehreren Spezifikationsdateien je Aufgabenart ein Verweis auf die zu lesende Datei | Gates nach Q-005 als konkrete Kommandos |
 
 ### Q-007 – Form der Promptdateien
 
@@ -246,11 +249,12 @@ Jeder Prompt liegt in einer eigenen Markdown-Datei in `lib/`.
 
 - **Dateinamen:** englisch, Kleinbuchstaben mit Bindestrich, nach Rolle oder Ergebnis benannt und ohne Nummern, zum Beispiel `security.md`. Die empfohlene Reihenfolge steht im Leitfaden. Die von den Prompts erzeugten Projektdateien behalten ihre üblichen Namen wie `REQUIREMENTS.md`.
 - **Aufbau:** Oben steht ein kurzer deutscher Kopf mit Rolle, Zweck, Voraussetzungen, Eingaben und Ergebnisdatei, darunter genau ein englischer Prompt-Block zum Kopieren. Ausführliche Anleitungen stehen im Leitfaden.
-- **Eingaben:** Der Prompt beginnt mit einem Eingabeblock aus benannten Feldern mit Hinweis. Leere Felder sind erlaubt; fehlende Angaben klärt die KI gezielt oder benennt sie als Lücke.
+- **Rollensatz:** Der Prompt-Block beginnt mit einem Satz, der Auftrag und Grenze der Rolle nennt, zum Beispiel: Act as the architecture contributor for this project; work only on the architecture and hand other topics back as open questions. Der Satz nennt keine Seniorität oder Expertenstufe.
+- **Eingaben:** Direkt nach dem Rollensatz folgt ein Eingabeblock aus benannten Feldern mit Hinweis. Leere Felder sind erlaubt; fehlende Angaben klärt die KI gezielt oder benennt sie als Lücke.
 - **Leitfaden:** Der Leitfaden steht in `lib/README.md`, zusammen mit der Prompt-Übersicht, und ist deutsch. Je Schritt nennt er Zeitpunkt in der empfohlenen Reihenfolge, nötige Entscheidungen und Prüfkriterien; die Prompts selbst bleiben eigenständig kopierbar.
 - **Kennungen:** Beiträge verwenden stabile Kennungen: FR (Anforderung), AC (Abnahmekriterium), OQ (offene Frage), ADR (Architekturentscheidung), SEC (Sicherheitsanforderung), T (Test) und WP (Arbeitspaket). Eine Kennung wird nie neu vergeben; Verweise zwischen Beiträgen laufen über sie. Ein eigenes Klärungsprotokoll gibt es nicht: Klärungen stehen mit Begründung und Datum bei der offenen Frage (OQ) oder der Entscheidung (ADR).
 - **Version:** Die neue Fassung beginnt unter dem Namen Idea to Spec mit Version 1.0. Die Version steht nur an einer Stelle, in `lib/README.md`, nicht in jedem Prompt.
-- **Sprache:** Beschreibungen und Leitfaden sind deutsch, Prompts englisch. Im Gespräch spricht die KI die Sprache des Benutzers. Die Sprache der Projektdokumente wird einmal festgelegt, Standard ist die Sprache des Benutzers, und danach beibehalten. Kennungen, Dateinamen und Code sind immer englisch.
+- **Sprache:** Beschreibungen und Leitfaden sind deutsch, Anweisungen für Agenten (Prompts, AGENTS.md, CLAUDE.md) immer englisch. Im Gespräch spricht die KI die Sprache des Benutzers. Die Sprache der Projektdokumente wird einmal festgelegt, Standard ist die Sprache des Benutzers, und danach beibehalten. Kennungen, Dateinamen und Code sind immer englisch.
 
 ## 6. Maßstab für die Zielerreichung
 
