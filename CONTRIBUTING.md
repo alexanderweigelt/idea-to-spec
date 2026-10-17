@@ -41,6 +41,8 @@ Danke für Ihr Interesse. Die oberste Grundlage ist [REQUIREMENTS.md](REQUIREMEN
 - Halten Sie Änderungen klein und begründen Sie sie mit einer Anforderung aus `REQUIREMENTS.md`. Weniger ist besser: Lassen Sie weg, was keinen Nutzen hat.
 - Ändert sich ein Prompt, prüfen Sie, ob der Leitfaden in `lib/README.md` angepasst werden muss.
 - Neue Prompts oder Änderungen sollten Sie in einer neuen KI-Session per Copy-and-paste ausprobieren. Nur Angewendetes gilt als geprüft.
+- Für Vergleichstests sollten Eingabe, erwartetes Ergebnis, Modellversion und tatsächliches Ergebnis festgehalten und dieselben Beispiele nach Prompt- oder Modelländerungen erneut geprüft werden. Bei Promptänderungen sollten alte und neue Fassung mit derselben Modellversion verglichen werden.
+- Bestehenskriterien sollten beobachtbares Verhalten beschreiben, zum Beispiel: fehlende Angaben werden als offen markiert; bestätigte Entscheidungen bleiben erhalten; ohne Dateizugriff wird ein vollständiger Entwurf mit Speicherhinweis geliefert. Wortgleiche Antworten sind kein sinnvolles Bestehenskriterium. Vorhandene echte Projektbeispiele können wiederverwendet werden.
 
 ## Mit Agenten arbeiten
 
