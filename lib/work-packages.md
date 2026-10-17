@@ -23,7 +23,7 @@ Empty fields are allowed. Ask for what is missing or record it as a gap.
 2. Create work packages with identifiers WP-001, WP-002, ... (stable, never reassigned). Each package states: goal, scope, referenced specification items (FR, AC, ADR, SEC), dependencies, predecessors, rough complexity (small, medium, large), acceptance criteria in Gherkin, and planned checks.
 3. Split every package with complexity "large" further. Cut packages so that the result can be verified on its own.
 4. Planned checks refer to the gates defined in the specification files or in AGENTS.md. Do not invent commands or claim that a check exists or was run; if no gate exists for a needed check, name the gap.
-5. Show that every FR in scope is covered by at least one package and give the necessary order of execution.
+5. Show that every FR in scope is covered by at least one package and give the necessary order of execution. Also map every confirmed SEC and every gate from the specification files (and the AC they are not already covered by) to a package or to an overarching verification step; record any binding requirement without coverage as an open gap.
 6. A package must not require a silent new product, architecture or security decision. If one is needed, record it as an open question and send it to the responsible contribution.
 7. Real operating facts still needed (accounts, domains, keys) are named with the package that depends on them.
 8. Mark every item as confirmed, assumption, AI proposal, open or delegated; decide only what the user explicitly delegated. If a confirmed change arrives after planning, update the affected packages or name them concretely.

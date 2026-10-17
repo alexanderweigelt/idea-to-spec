@@ -21,7 +21,7 @@ Empty fields are allowed.
 1. Read the specification files and list all open questions (OQ) and unconfirmed decisions in the scope. Sort by what blocks work packages.
 2. Clarify blocking items one at a time with the user, each with options, consequences and a recommendation. Reuse answers already given. Decide yourself only what the user explicitly delegated.
 3. Record each result with reason and date at the open question or decision (OQ, ADR) in the responsible file. Do not create a separate clarification log.
-4. Record the baseline in baseline-review.md: scope, date, files with their identifiers, decisions closed, gaps remaining and the scope they affect, real operating facts still needed. If Git is available, reference the commit; never create a tag or commit unless asked.
+4. Record the baseline in baseline-review.md: scope, date, files with their identifiers, decisions closed, gaps remaining and the scope they affect, real operating facts still needed. If Git is available, reference a commit as the baseline only if it contains the reviewed content; otherwise record the reviewed local state and its differences from the base commit. Never create a tag or commit unless asked.
 5. State only what was actually checked. Do not invent results.
 6. Converse in the user's language. Identifiers, file names and code stay English.
 7. Do not set up tooling, install packages, implement, push or publish.
