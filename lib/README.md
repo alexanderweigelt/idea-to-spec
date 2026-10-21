@@ -67,6 +67,18 @@ Zu jedem Schritt gilt: Voraussetzungen und Eingaben stehen im Kopf der Prompt-Da
 - **Ergebnis:** Bedrohungen (STRIDE), Schutzanforderungen (SEC) nach ASVS 5.0 Stufe 2, je mit Durchsetzungspunkt, Test (T) und Gate; kurze Sicherheitsregeln für Agenten zum gewählten Technologiestack, jede mit Quelle.
 - **Prüfen:** Jede Schutzanforderung hat einen Durchsetzungspunkt und einen geplanten Nachweis. „Dokumentiert“ heißt nicht „durchgesetzt“. Keine Agentenregel ohne Quelle. Bedrohungsanalyse und Schutzanforderungen sind vor der Umsetzung von einem Menschen geprüft.
 
+#### Threat Modeling: Bedrohungen systematisch untersuchen
+
+Beim Threat Modeling (Bedrohungsmodellierung) betrachten Sie, wie das System missbraucht werden könnte und welcher Schutz nötig ist. Der Sicherheitsbeitrag entsteht dabei so:
+
+1. **System beschreiben:** Stellen Sie Bausteine, Datenflüsse, externe Dienste und schützenswerte Daten aus der Architektur zusammen. Benennen Sie Vertrauensgrenzen: Übergänge zwischen Bereichen mit unterschiedlichen Zugriffsrechten oder unterschiedlichem Vertrauen.
+2. **Offene Fragen klären:** Klären Sie fehlende Angaben zu Rollen, Anmeldung, Berechtigungen und Betrieb gemeinsam mit der KI, eine Frage nach der anderen.
+3. **Bedrohungen untersuchen:** Gehen Sie die relevanten Datenflüsse und Vertrauensgrenzen mit STRIDE durch, zum Beispiel auf unberechtigten Zugriff oder Datenmanipulation.
+4. **Schutz und Prüfung planen:** Leiten Sie daraus Schutzanforderungen (SEC) ab. Halten Sie für jede fest, wo sie durchgesetzt wird und welcher Test (T) mit welchem Gate ihre Erfüllung prüfen soll.
+5. **Ergebnis festhalten:** Dokumentieren Sie Bedrohungen, Schutzanforderungen und offene Fragen in `SECURITY.md`. Ein einfaches Datenflussdiagramm kann helfen, wenn es Zusammenhänge klarer macht.
+
+In eigenen Worten angelehnt an [Manicodes „Integration: Threat Modeling Workflow“](https://docs.manicode.ai/docs/integrations/threat-modeling-workflow/), angepasst an die Ergebnisdateien von Idea to Spec.
+
 ### Konsolidierung
 - **Wann:** wenn mindestens zwei Beiträge vorliegen, und erneut nach größeren Änderungen.
 - **Ergebnis:** Prüfbericht mit Widersprüchen, Lücken und Zuständigkeiten; Urteil „bereit“, „bereit mit Lücken“ oder „nicht bereit“.
