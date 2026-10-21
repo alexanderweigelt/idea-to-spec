@@ -94,7 +94,7 @@ FR Anforderung · AC Abnahmekriterium · OQ offene Frage · ADR Architekturentsc
 
 ## Offene Fragen und Widersprüche
 
-- Die KI legt Ihnen jede offene Entscheidung einzeln vor, die blockierende zuerst. Als Empfehlung ist die Vorgabe aus Ihrem Vorgabendokument vorausgewählt, sonst der anerkannte Standard des Fachgebiets (Default). Sie bestätigen oder wählen jederzeit etwas anderes; die Bestätigung schließt die Frage.
+- Die KI legt Ihnen jede offene Entscheidung einzeln vor, eine pro Nachricht, die blockierende zuerst. Als Empfehlung ist die Vorgabe aus Ihrem Vorgabendokument vorausgewählt, sonst der anerkannte Standard des Fachgebiets (Default). Sie bestätigen oder wählen jederzeit etwas anderes; die Bestätigung schließt die Frage.
 - Die KI verwendet bereits beantwortete Fragen wieder.
 - Eine Entscheidung trifft die KI nur, wenn Sie sie ausdrücklich delegiert haben.
 - Lehnt ein Prompt eine bestätigte Entscheidung eines anderen Beitrags ab, überschreibt er sie nicht. Er legt eine offene Frage (OQ) mit Bezug an, und Sie entscheiden.
