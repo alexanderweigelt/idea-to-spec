@@ -6,7 +6,7 @@ Für Websites, Webanwendungen, PWAs und Web-APIs ist die Library gedacht. Angren
 
 ## So arbeiten Sie
 
-1. Kopieren Sie den englischen Prompt-Block aus der Datei in eine KI-Session und füllen Sie den Eingabeblock aus. Leere Felder sind erlaubt; die KI fragt gezielt nach.
+1. Kopieren Sie den englischen Prompt-Block aus der Datei in eine KI-Session und füllen Sie den Eingabeblock aus. Leere Felder sind erlaubt; die KI fragt gezielt nach. Optional bringen Sie ein Vorgabendokument ein, etwa Unternehmensstandards oder vertraglich vereinbarte Details. Seine Vorgaben haben Vorrang vor den Standards der Prompts.
 2. Die KI führt im Gespräch und schreibt das Ergebnis in die Ergebnisdatei im Zielprojekt. Ohne Dateizugriff liefert sie einen vollständigen Markdown-Entwurf und sagt ausdrücklich, dass nichts gespeichert wurde. Übernehmen Sie ihn dann selbst.
 3. Eine eigene Session je Rolle wird empfohlen; eine gemeinsame Session funktioniert ebenso. Neue Sessions setzen anhand der Projektdateien fort, nicht anhand früherer Chats.
 
@@ -36,7 +36,7 @@ Zu jedem Schritt gilt: Voraussetzungen und Eingaben stehen im Kopf der Prompt-Da
 
 ### Anforderungen
 - **Wann:** am Anfang, auch mit einer unvollständigen Idee.
-- **Entscheidungen:** Ziel, Nutzer, Umfang, Ausschlüsse; die KI fragt das Wichtigste zuerst.
+- **Entscheidungen:** Ziel, Nutzer, Umfang, Ausschlüsse sowie welche Daten verarbeitet werden und wer sie sehen oder ändern darf; die KI fragt das Wichtigste zuerst.
 - **Ergebnis:** Anforderungen (FR) mit Abnahmekriterien (AC); unklare Punkte als Entwurf mit offener Frage (OQ).
 - **Prüfen:** Jede Anforderung hat ein beobachtbares Abnahmekriterium; Fehler-, Grenz- und Berechtigungsfälle sind beschrieben oder offen benannt.
 
@@ -59,12 +59,13 @@ Zu jedem Schritt gilt: Voraussetzungen und Eingaben stehen im Kopf der Prompt-Da
 ### Architektur
 - **Wann:** nach den Anforderungen, bei Bedarf nach Recht und Design.
 - **Entscheidungen:** Technologien und Betriebsrahmen; jede Wahl wird als Entscheidung (ADR) festgehalten.
-- **Prüfen:** Schnittstellen, Datenhaltung und Entscheidungen sind beschrieben; benötigte reale Betriebsangaben sind benannt.
+- **Prüfen:** Schnittstellen, Datenhaltung und Entscheidungen sind beschrieben; benötigte reale Betriebsangaben sind benannt. Werte, die erst eine Messung am realen System liefert, haben einen Startwert mit Grundlage (als Annahme) oder bleiben offen; beides wird als „messen, dann festlegen“ geplant.
 
 ### Sicherheit
-- **Wann:** sobald der technische Aufbau absehbar ist.
-- **Ergebnis:** Bedrohungen (STRIDE), Schutzanforderungen (SEC) nach ASVS 5.0 Stufe 2, je mit Durchsetzungspunkt, Test (T) und Gate.
-- **Prüfen:** Jede Schutzanforderung hat einen Durchsetzungspunkt und einen geplanten Nachweis. „Dokumentiert“ heißt nicht „durchgesetzt“.
+- **Wann:** empfohlen direkt nach der Architektur. Sicherheit wird früh einbezogen: Die Anforderungen beschreiben Daten und Zugriffsrechte, und jeder Beitrag prüft seine Änderungen auf Sicherheitsfolgen.
+- **Entscheidungen:** Bedrohungen und Schutzanforderungen, im Gespräch mit Ihnen.
+- **Ergebnis:** Bedrohungen (STRIDE), Schutzanforderungen (SEC) nach ASVS 5.0 Stufe 2, je mit Durchsetzungspunkt, Test (T) und Gate; kurze Sicherheitsregeln für Agenten zum gewählten Technologiestack, jede mit Quelle.
+- **Prüfen:** Jede Schutzanforderung hat einen Durchsetzungspunkt und einen geplanten Nachweis. „Dokumentiert“ heißt nicht „durchgesetzt“. Keine Agentenregel ohne Quelle. Bedrohungsanalyse und Schutzanforderungen sind vor der Umsetzung von einem Menschen geprüft.
 
 ### Konsolidierung
 - **Wann:** wenn mindestens zwei Beiträge vorliegen, und erneut nach größeren Änderungen.
@@ -79,21 +80,22 @@ Zu jedem Schritt gilt: Voraussetzungen und Eingaben stehen im Kopf der Prompt-Da
 
 ### Agent-Anweisungen
 - **Wann:** vor der Umsetzung, nachdem die Fachdateien ihre Gates festgelegt haben.
-- **Ergebnis:** `AGENTS.md` mit Regeln und konkreten Prüfkommandos je Gate; fehlende Kommandos sind als „geplant“ markiert.
+- **Ergebnis:** `AGENTS.md` mit Regeln, Verweisen je Aufgabenart auf die Sicherheitsregeln in `SECURITY.md` und konkreten Prüfkommandos je Gate; fehlende Kommandos sind als „geplant“ markiert.
 - **Prüfen:** Kein Kommando ist erfunden; jedes Gate ist einer Fachdatei zugeordnet.
 
 ### Arbeitspakete
 - **Wann:** wenn der Umfang ausreichend spezifiziert ist (Konsolidierung „bereit“ oder „bereit mit Lücken“).
 - **Ergebnis:** Pakete (WP) mit Ziel, Umfang, Spezifikationsbezug, Vorgängern, grober Komplexität, Abnahmekriterien (Gherkin) und geplanten Prüfungen.
-- **Prüfen:** Jede Anforderung im Umfang ist abgedeckt; kein Paket ist „groß“; kein Paket verlangt eine stille neue Entscheidung.
+- **Prüfen:** Jede Anforderung im Umfang ist abgedeckt; kein Paket ist „groß“; kein Paket verlangt eine stille neue Entscheidung. Jeder noch zu messende Wert hat ein Paket „messen, dann festlegen“, dessen Ergebnis über den zuständigen Fachprompt in die Spezifikation geht.
 
 ## Kennungen und Kennzeichnung
 
-FR Anforderung · AC Abnahmekriterium · OQ offene Frage · ADR Architekturentscheidung · SEC Sicherheitsanforderung · T Test · WP Arbeitspaket. Eine Kennung wird nie neu vergeben; Verweise laufen über sie. Inhalte sind gekennzeichnet als bestätigt, Annahme, KI-Vorschlag, offen oder delegiert. Klärungen stehen mit Begründung und Datum bei der offenen Frage oder der Entscheidung.
+FR Anforderung · AC Abnahmekriterium · OQ offene Frage · ADR Architekturentscheidung · SEC Sicherheitsanforderung · T Test · WP Arbeitspaket. Eine Kennung wird nie neu vergeben; Verweise laufen über sie. Inhalte sind gekennzeichnet als bestätigt, Default (bestätigter Standard), Annahme, KI-Vorschlag, offen oder delegiert. Klärungen stehen mit Begründung und Datum bei der offenen Frage oder der Entscheidung.
 
 ## Offene Fragen und Widersprüche
 
-- Beantworten Sie blockierende Fragen zuerst. Die KI verwendet bereits beantwortete Fragen wieder.
+- Die KI legt Ihnen jede offene Entscheidung einzeln vor, eine pro Nachricht, die blockierende zuerst. Als Empfehlung ist die Vorgabe aus Ihrem Vorgabendokument vorausgewählt, sonst der anerkannte Standard des Fachgebiets (Default). Sie bestätigen oder wählen jederzeit etwas anderes; die Bestätigung schließt die Frage.
+- Die KI verwendet bereits beantwortete Fragen wieder.
 - Eine Entscheidung trifft die KI nur, wenn Sie sie ausdrücklich delegiert haben.
 - Lehnt ein Prompt eine bestätigte Entscheidung eines anderen Beitrags ab, überschreibt er sie nicht. Er legt eine offene Frage (OQ) mit Bezug an, und Sie entscheiden.
 

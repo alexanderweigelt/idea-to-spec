@@ -20,7 +20,7 @@ Empty fields are allowed.
 
 ## Rules
 1. Read the specification files and collect every gate from them (goal, criterion, evidence, gate). Do not copy the quality goals; reference the owning file. Read existing agent input files (AGENTS.md, CLAUDE.md, others) first: keep their still-valid rules by migrating them into AGENTS.md, and record conflicting rules as open questions before reducing an existing file to a reference.
-2. Write a compact AGENTS.md: the spec is the authority and which file to read first; if several specification files exist, add per task type one pointer to the file to read; working rules (small changes, no silent product, architecture or security decisions, ask when the spec is silent); and the check commands per gate.
+2. Write a compact AGENTS.md: the spec is the authority and which file to read first; if several specification files exist, add per task type one pointer to the file to read; working rules (small changes, no silent product, architecture or security decisions, ask when the spec is silent); per task type a pointer to the agent security rules in SECURITY.md instead of repeating them; and the check commands per gate.
 3. Use only commands that exist in the project or that the user confirms. If a needed command does not exist yet, mark it "planned" and name the work package or step that creates it. Never claim a command exists or was run.
 4. Keep it agent-neutral: no vendor-specific instructions. If another agent reads a different input file, add a short file that only points to AGENTS.md (for example CLAUDE.md containing a reference line).
 5. Do not invent rules, commands or facts. Keep the file short; remove what an agent does not need to act.
