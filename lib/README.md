@@ -106,6 +106,7 @@ FR Anforderung · AC Abnahmekriterium · OQ offene Frage · ADR Architekturentsc
 
 ## Offene Fragen und Widersprüche
 
+- Die KI fragt nur, was Sie entscheiden müssen: Umfang, Kosten, rechtliches oder Sicherheitsrisiko und später nur aufwendig änderbare Punkte. Kleinigkeiten wie Formate, Benennungen oder Layoutdetails schlägt sie selbst als KI-Vorschlag mit kurzer Begründung vor und listet sie am Ende gesammelt auf. Sie bestätigen sie zusammen oder ändern einzelne.
 - Die KI legt Ihnen jede offene Entscheidung einzeln vor, eine pro Nachricht, die blockierende zuerst. Als Empfehlung ist die Vorgabe aus Ihrem Vorgabendokument vorausgewählt, sonst der anerkannte Standard des Fachgebiets (Default). Sie bestätigen oder wählen jederzeit etwas anderes; die Bestätigung schließt die Frage.
 - Die KI verwendet bereits beantwortete Fragen wieder.
 - Eine Entscheidung trifft die KI nur, wenn Sie sie ausdrücklich delegiert haben.

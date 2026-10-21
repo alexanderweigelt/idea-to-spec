@@ -131,6 +131,7 @@ Die Prompts müssen offene Entscheidungen mit dem Benutzer klären und deren Erg
 - Antworten werden in die zuständigen Fachunterlagen und betroffenen Verweise übernommen; unterbrochene Klärungen können fortgesetzt werden.
 - Offene Projektentscheidungen werden nur innerhalb einer ausdrücklichen Delegation eigenständig getroffen. Bereits geklärte Arbeit benötigt keine erneute Bestätigung.
 - Jede offene Entscheidung wird dem Benutzer einzeln vorgelegt. Besteht eine Vorgabe aus einem eingebrachten Vorgabendokument (REQ-001) oder ein Default nach Q-006, ist sie als Empfehlung vorausgewählt. Der Benutzer bestätigt sie oder wählt jederzeit etwas anderes. Die Bestätigung schließt die Frage; ein bestätigter Default wird als Default gekennzeichnet.
+- Gefragt wird nur, was der Benutzer entscheiden muss: Entscheidungen, die Umfang, Kosten, rechtliches oder Sicherheitsrisiko betreffen oder später nur aufwendig änderbar sind. Kleinigkeiten wie Formate, Benennungen oder Layoutdetails werden nicht gefragt und nicht als offene Frage angelegt. Der Prompt schlägt dafür die Vorgabe, den Default nach Q-006 oder eine begründete Empfehlung vor, kennzeichnet sie als KI-Vorschlag und führt diese Vorschläge am Ende gesammelt auf; der Benutzer kann sie zusammen bestätigen oder einzeln ändern.
 
 ### REQ-006 – Fachübergreifende Rückkopplungen
 
