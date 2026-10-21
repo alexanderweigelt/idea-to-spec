@@ -55,6 +55,8 @@ Die fachliche Ausarbeitung kann beispielsweise folgende Beiträge umfassen:
 
 Der Beitrag Recht wird empfohlen vor Design und Architektur erarbeitet, damit Entscheidungen etwa zu Schriften und Bibliotheken innerhalb seines Rahmens fallen. Design und Architektur berücksichtigen ihn, sofern vorhanden.
 
+Sicherheit wird früh und durchgängig einbezogen. Der Anforderungsbeitrag beschreibt, welche Daten verarbeitet werden und wer sie sehen oder ändern darf; Schutzbedarf und Schutzanforderungen legt der Sicherheitsbeitrag fest. Der Sicherheitsbeitrag klärt Bedrohungen und Schutzanforderungen im Gespräch mit dem Benutzer; der Leitfaden empfiehlt ihn direkt nach der Architektur. Jeder Fachbeitrag prüft seine Änderungen auch auf Sicherheitsfolgen (REQ-006). Bedrohungsanalyse und Sicherheitsanforderungen erhalten vor der Umsetzung ein menschliches Review.
+
 Die Rollen und Dateinamen sind Beispiele. Benötigte Fachgebiete können ergänzt und zusammengehörige Beiträge passend zum Projekt gebündelt werden.
 
 Ergänzend zu den Fachbeiträgen bietet die Library begleitende Arbeitsschritte an:
@@ -82,6 +84,7 @@ Die Library muss den Einstieg mit einer noch unvollständigen Projektidee ermög
 
 - Der Einstieg erfasst Problem, Ziel, Nutzer, wesentliche Funktionen, typische Abläufe, Rahmenbedingungen und Ausschlüsse.
 - Vorhandene Projektunterlagen werden berücksichtigt; fehlende Angaben bleiben sichtbar.
+- Optional kann zu Beginn ein Vorgabendokument eingebracht werden, etwa Unternehmensstandards oder vertraglich vereinbarte Details. Seine Vorgaben haben Vorrang vor den Defaults nach Q-006.
 - Daraus entsteht ein erster Anforderungsstand mit stabilen Kennungen und beobachtbaren Akzeptanzkriterien. Unzureichend geklärte Anforderungen erhalten einen erkennbaren Entwurfsstatus.
 
 ### REQ-002 – Fachliche Beiträge durch eigene Prompts
@@ -124,9 +127,10 @@ Die Prompts müssen offene Entscheidungen mit dem Benutzer klären und deren Erg
 
 - Bereits beantwortete Fragen werden wiederverwendet. Neue Erkenntnisse, die eine Entscheidung erneut betreffen, werden erklärt.
 - Blockierende Fragen werden priorisiert und jeweils verständlich gestellt. Bei geeigneten Entscheidungen werden Optionen, Auswirkungen und eine begründete Empfehlung angeboten.
-- Bestätigte Vorgaben, Annahmen, KI-Vorschläge, offene Entscheidungen und ausdrücklich delegierte Entscheidungen bleiben unterscheidbar.
+- Bestätigte Vorgaben, bestätigte Defaults, Annahmen, KI-Vorschläge, offene Entscheidungen und ausdrücklich delegierte Entscheidungen bleiben unterscheidbar.
 - Antworten werden in die zuständigen Fachunterlagen und betroffenen Verweise übernommen; unterbrochene Klärungen können fortgesetzt werden.
 - Offene Projektentscheidungen werden nur innerhalb einer ausdrücklichen Delegation eigenständig getroffen. Bereits geklärte Arbeit benötigt keine erneute Bestätigung.
+- Jede offene Entscheidung wird dem Benutzer einzeln vorgelegt. Besteht eine Vorgabe aus einem eingebrachten Vorgabendokument (REQ-001) oder ein Default nach Q-006, ist sie als Empfehlung vorausgewählt. Der Benutzer bestätigt sie oder wählt jederzeit etwas anderes. Die Bestätigung schließt die Frage; ein bestätigter Default wird als Default gekennzeichnet.
 
 ### REQ-006 – Fachübergreifende Rückkopplungen
 
@@ -161,6 +165,7 @@ Die Library muss prüfbar beschreiben, wann ein Projektumfang ausreichend spezif
 - Anforderungen besitzen beobachtbare Akzeptanzkriterien. Relevante Fehler-, Grenz- und Berechtigungsfälle sind beschrieben oder als offene Punkte erfasst.
 - Blockierende Entscheidungen und Widersprüche sind für diesen Umfang geklärt. Verbleibende Lücken und ihr betroffener Umfang bleiben sichtbar.
 - Noch benötigte reale Betriebsangaben werden als solche benannt und vor dem jeweils davon abhängigen Arbeitsschritt geklärt.
+- Werte, die erst durch Messung am realen System entstehen, etwa Ressourcengrenzen oder Antwortzeiten, blockieren den Übergang nicht. Sie erhalten einen als Annahme gekennzeichneten Startwert mit nachvollziehbarer Grundlage, etwa einem Standard oder einer Herstellerangabe, und werden als Arbeitspaket „messen, dann festlegen“ geplant. Fehlt eine solche Grundlage, bleibt der Wert bis zur Messung offen.
 
 ### REQ-009 – Überprüfbare Arbeitspakete
 
@@ -173,6 +178,7 @@ Die Library muss aus der abgestimmten Spezifikation konkrete Arbeitspakete ablei
 - Jedes Arbeitspaket nennt seine Vorgänger und eine grobe Komplexität (klein, mittel, groß). Pakete mit Komplexität groß werden weiter geschnitten.
 - Die fachliche Abdeckung und notwendige Ausführungsreihenfolge sind nachvollziehbar.
 - Die Umsetzung benötigt keine stillschweigenden neuen Produkt-, Architektur- oder Sicherheitsentscheidungen.
+- Ein Arbeitspaket zum Messen und Festlegen eines Werts übernimmt sein Ergebnis über den zuständigen Fachbeitrag in die Spezifikation (REQ-006).
 
 ### REQ-010 – Praktischer Leitfaden
 
@@ -226,9 +232,11 @@ Jedes übergreifende Qualitätsziel des Zielprojekts muss als Kette Ziel → Kri
 
 Der Arbeitsschritt Agent-Anweisungen sammelt die Gates aus den Fachdateien und legt dafür konkrete Prüfkommandos fest. Arbeitspakete verweisen in ihren geplanten Prüfungen auf diese Gates.
 
+Der Sicherheitsbeitrag formuliert zusätzlich kurze, imperative Sicherheitsregeln für den gewählten Technologiestack, die ein Agent beim Programmieren befolgt. Jede Regel nennt eine überprüfbare Quelle, etwa die OWASP Cheat Sheet Series oder die offizielle Dokumentation des eingesetzten Frameworks; eine Regel ohne Quelle wird nicht aufgenommen. Der Arbeitsschritt Agent-Anweisungen verweist je Aufgabenart auf diese Regeln, statt sie zu wiederholen.
+
 ### Q-006 – Standards als Default
 
-Jeder Fachprompt legt für seinen Beitrag einen anerkannten Standard als Default fest und benennt ihn mit Version im Prompt selbst. Die Fachrolle verantwortet ihren Standard; es gibt keine übergreifende Standardliste, die für alle Prompts gilt. Abweichungen sind während der Erarbeitung erlaubt und werden mit Begründung als Entscheidung in der Fachdatei festgehalten. Ein Standard, der für das Projekt nicht zutrifft, etwa WCAG ohne Benutzeroberfläche, entfällt mit Begründung.
+Jeder Fachprompt legt für seinen Beitrag einen anerkannten Standard als Default fest und benennt ihn mit Version im Prompt selbst. Die Fachrolle verantwortet ihren Standard; es gibt keine übergreifende Standardliste, die für alle Prompts gilt. Der Default gilt auch für die inhaltlichen Entscheidungen des Beitrags: Die Empfehlung entspricht dem anerkannten Standard des Fachgebiets und muss eine offene Frage schließen können. Abweichungen sind während der Erarbeitung erlaubt und werden mit Begründung als Entscheidung in der Fachdatei festgehalten; vorgesehen sind vor allem Absenkungen für kleinere Projekte, eine Verschärfung benötigt einen Projektgrund. Vorgaben aus einem eingebrachten Vorgabendokument (REQ-001) haben Vorrang vor dem Default. Ein Standard, der für das Projekt nicht zutrifft, etwa WCAG ohne Benutzeroberfläche, entfällt mit Begründung.
 
 Defaults (Stand 16.10.2026):
 
@@ -267,3 +275,5 @@ Die Library erfüllt ihr Kernziel, wenn der Benutzer:
 5. daraus überprüfbare Arbeitspakete als Grundlage der Entwicklung erhält.
 
 Als erreicht gilt nur, was tatsächlich angewendet wurde. Nicht angewendete Module und nicht ausgeführte Prüfungen bleiben ungeprüft.
+
+Ein Testlauf der Library verwendet ein festgelegtes Zielbild und bewertet Weg und Ergebnis mit schriftlich festgelegten, gleichbleibenden Prüfpunkten: Reihenfolge der Schritte, Fragen an den Benutzer, festgehaltene Entscheidungen, Rückprüfung, Einbindung der Sicherheit, Prüfbarkeit der Anforderungen und Umsetzbarkeit der Arbeitspakete. Der erste bewertete Lauf bildet die Vergleichsbasis. Eine geänderte Promptfassung wird mit der vorherigen verglichen und nur übernommen, wenn das Ergebnis nicht schlechter wird. Modell und Modellversion werden je Lauf festgehalten; nach einem Modellwechsel wird erneut getestet. Kleine Abweichungen zwischen Läufen sind zu erwarten; ist der Unterschied zur vorherigen Fassung knapp, wird der Lauf wiederholt, bevor entschieden wird. Antwortet eine KI anstelle des Benutzers, wird der Lauf als automatischer Lauf gekennzeichnet; ihre Antworten gelten nicht als Entscheidungen des Benutzers. Die Bewertung eines Laufs prüft ein Mensch. Optional kann ein zweites Modell den Lauf zusätzlich prüfen.
