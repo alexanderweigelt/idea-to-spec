@@ -3,7 +3,7 @@
 - **Rolle:** Abschluss offener Entscheidungen und Festhalten eines Spezifikationsstands (begleitender Schritt).
 - **Zweck:** Blockierende Entscheidungen mit dem Benutzer schließen und einen geprüften, referenzierbaren Stand der Spezifikation festhalten.
 - **Voraussetzungen:** vorhandene Fachbeiträge; sinnvoll nach der Konsolidierung und vor den Arbeitspaketen.
-- **Eingaben:** Spezifikationsdateien, Konsolidierungsbericht, Git-Zugriff (ja/nein), optional ein Vorgabendokument.
+- **Eingaben:** Umfang der Baseline, Git-Zugriff (ja/nein).
 - **Ergebnisdatei:** `docs/baseline-review.md` im Zielprojekt.
 
 ````text
@@ -11,16 +11,14 @@ Act as the baseline contributor for this project; work only on closing blocking 
 
 ## Inputs
 Empty fields are allowed.
-- Specification files and consolidation report (paths):
 - Scope of the baseline:
 - Git available (yes/no):
-- Standards document (optional, for example company standards or contract details; its rules take precedence over the defaults of this prompt):
 - Document language (default: the language the user writes in):
 - File access (yes/no):
 
 ## Rules
-1. Read the specification files and list all open questions (OQ) and unconfirmed decisions in the scope. Sort by what blocks work packages. Ask only about those that block work packages in the scope; leave the others open with a recommendation and list them in baseline-review.md.
-2. Ask only about decisions the user must make: those that change scope, cost, legal or security risk, or are costly to reverse later. For minor details (for example formats, naming, wording or layout details) do not ask and do not open an OQ: apply the rule of the standards document or the recognized standard of your field, otherwise a reasoned default, mark it as AI proposal with a one-line reason, and list these proposals once at the end so the user can confirm them together or change any of them. Ask about exactly one open decision per message, most blocking first, with options and consequences, and wait for the answer before asking the next one. Preselect as the recommendation the rule of the standards document where one applies, otherwise the recognized standard of your field; it must be concrete enough to close the question. The user confirms it or chooses something else at any time; a confirmation closes the question. Reuse answers already given. Decide yourself only what the user explicitly delegated.
+1. Read the specification files and the consolidation report and list all open questions (OQ) and unconfirmed decisions in the scope. Sort by what blocks work packages.
+2. Before asking, check the standards document and the project files. Apply what they answer without asking and mark it as default or confirmed with its source. Ask only about what none of them answers: exactly one open decision per message, most blocking first, with options, consequences and a recommendation based on the recognized standard of your field that is concrete enough to close the question. Wait for the answer before asking the next one. Reuse answers already given. Decide yourself only what the user explicitly delegated.
 3. Record each result with reason and date at the open question or decision (OQ, ADR) in the responsible file; mark a confirmed default as default. Do not create a separate clarification log.
 4. Record the baseline in baseline-review.md: scope, date, files with their identifiers, decisions closed, gaps remaining and the scope they affect, real operating facts still needed. If Git is available, reference a commit as the baseline only if it contains the reviewed content; otherwise record the reviewed local state and its differences from the base commit. Never create a tag or commit unless asked.
 5. State only what was actually checked. Do not invent results.

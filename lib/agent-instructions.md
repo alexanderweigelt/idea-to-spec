@@ -3,7 +3,7 @@
 - **Rolle:** Entwicklungsregeln für Agenten im Zielprojekt (begleitender Schritt).
 - **Zweck:** Eine kompakte, agentenneutrale `AGENTS.md` mit Arbeitsregeln sowie konkreten Prüfkommandos und Gates für die spätere Umsetzung erstellen.
 - **Voraussetzungen:** Fachdateien mit Qualitätszielen und Gates (zum Beispiel `SECURITY.md`, `DESIGN.md`, `ARCHITECTURE.md`); sinnvoll vor der Umsetzung.
-- **Eingaben:** Spezifikationsdateien, vorhandene Projektwerkzeuge.
+- **Eingaben:** Spezifikationsdateien, vorhandene Projektwerkzeuge, Defaults (vor dem Kopieren anpassbar).
 - **Ergebnisdatei:** `AGENTS.md` im Zielprojekt (plus kurzer Verweis für Agenten mit anderer Eingabedatei).
 - **Standard:** AGENTS.md, agentenneutral.
 
@@ -17,6 +17,8 @@ Empty fields are allowed.
 - Other agent input files in use (for example CLAUDE.md):
 - Document language: English (agent instructions are always English)
 - File access (yes/no):
+- Defaults (edit before copying to set your own):
+  - Agent instructions: AGENTS.md, agent-neutral
 
 ## Rules
 1. Read the specification files and collect every gate from them (goal, criterion, evidence, gate). Do not copy the quality goals; reference the owning file. Read existing agent input files (AGENTS.md, CLAUDE.md, others) first: keep their still-valid rules by migrating them into AGENTS.md, and record conflicting rules as open questions before reducing an existing file to a reference.

@@ -84,7 +84,7 @@ Die Library muss den Einstieg mit einer noch unvollständigen Projektidee ermög
 
 - Der Einstieg erfasst Problem, Ziel, Nutzer, wesentliche Funktionen, typische Abläufe, Rahmenbedingungen und Ausschlüsse.
 - Vorhandene Projektunterlagen werden berücksichtigt; fehlende Angaben bleiben sichtbar.
-- Optional kann zu Beginn ein Vorgabendokument eingebracht werden, etwa Unternehmensstandards oder vertraglich vereinbarte Details. Seine Vorgaben haben Vorrang vor den Defaults nach Q-006.
+- Optional kann der Benutzer jedem Fachprompt im Chat Projektunterlagen und ein Vorgabendokument übergeben, etwa Unternehmensstandards oder vertraglich vereinbarte Details. Seine Vorgaben haben Vorrang vor den Defaults nach Q-006.
 - Daraus entsteht ein erster Anforderungsstand mit stabilen Kennungen und beobachtbaren Akzeptanzkriterien. Unzureichend geklärte Anforderungen erhalten einen erkennbaren Entwurfsstatus.
 
 ### REQ-002 – Fachliche Beiträge durch eigene Prompts
@@ -127,11 +127,10 @@ Die Prompts müssen offene Entscheidungen mit dem Benutzer klären und deren Erg
 
 - Bereits beantwortete Fragen werden wiederverwendet. Neue Erkenntnisse, die eine Entscheidung erneut betreffen, werden erklärt.
 - Blockierende Fragen werden priorisiert und jeweils verständlich gestellt. Bei geeigneten Entscheidungen werden Optionen, Auswirkungen und eine begründete Empfehlung angeboten.
-- Bestätigte Vorgaben, bestätigte Defaults, Annahmen, KI-Vorschläge, offene Entscheidungen und ausdrücklich delegierte Entscheidungen bleiben unterscheidbar.
+- Vorgaben, Defaults, Annahmen, KI-Vorschläge, offene Entscheidungen und ausdrücklich delegierte Entscheidungen bleiben unterscheidbar.
 - Antworten werden in die zuständigen Fachunterlagen und betroffenen Verweise übernommen; unterbrochene Klärungen können fortgesetzt werden.
 - Offene Projektentscheidungen werden nur innerhalb einer ausdrücklichen Delegation eigenständig getroffen. Bereits geklärte Arbeit benötigt keine erneute Bestätigung.
-- Jede offene Entscheidung wird dem Benutzer einzeln vorgelegt. Besteht eine Vorgabe aus einem eingebrachten Vorgabendokument (REQ-001) oder ein Default nach Q-006, ist sie als Empfehlung vorausgewählt. Der Benutzer bestätigt sie oder wählt jederzeit etwas anderes. Die Bestätigung schließt die Frage; ein bestätigter Default wird als Default gekennzeichnet.
-- Gefragt wird nur, was der Benutzer entscheiden muss: Entscheidungen, die Umfang, Kosten, rechtliches oder Sicherheitsrisiko betreffen oder später nur aufwendig änderbar sind. Kleinigkeiten wie Formate, Benennungen oder Layoutdetails werden nicht gefragt und nicht als offene Frage angelegt. Der Prompt schlägt dafür die Vorgabe, den Default nach Q-006 oder eine begründete Empfehlung vor, kennzeichnet sie als KI-Vorschlag und führt diese Vorschläge am Ende gesammelt auf; der Benutzer kann sie zusammen bestätigen oder einzeln ändern.
+- Vorgaben aus dem Prompt, dem Vorgabendokument oder vorhandenen Projektunterlagen werden ohne Rückfrage übernommen und mit Quelle als Vorgabe oder Default gekennzeichnet. Dem Benutzer wird nur vorgelegt, was keine dieser Stellen beantwortet, jeweils einzeln und mit begründeter Empfehlung.
 
 ### REQ-006 – Fachübergreifende Rückkopplungen
 
@@ -237,7 +236,7 @@ Der Sicherheitsbeitrag formuliert zusätzlich kurze, imperative Sicherheitsregel
 
 ### Q-006 – Standards als Default
 
-Jeder Fachprompt legt für seinen Beitrag einen anerkannten Standard als Default fest und benennt ihn mit Version im Prompt selbst. Die Fachrolle verantwortet ihren Standard; es gibt keine übergreifende Standardliste, die für alle Prompts gilt. Der Default gilt auch für die inhaltlichen Entscheidungen des Beitrags: Die Empfehlung entspricht dem anerkannten Standard des Fachgebiets und muss eine offene Frage schließen können. Abweichungen sind während der Erarbeitung erlaubt und werden mit Begründung als Entscheidung in der Fachdatei festgehalten; vorgesehen sind vor allem Absenkungen für kleinere Projekte, eine Verschärfung benötigt einen Projektgrund. Vorgaben aus einem eingebrachten Vorgabendokument (REQ-001) haben Vorrang vor dem Default. Ein Standard, der für das Projekt nicht zutrifft, etwa WCAG ohne Benutzeroberfläche, entfällt mit Begründung.
+Jeder Fachprompt legt für seinen Beitrag einen anerkannten Standard als Default fest und benennt ihn mit Version im Defaults-Feld des Eingabeblocks. Die Fachrolle verantwortet ihren Standard; es gibt keine übergreifende Standardliste, die für alle Prompts gilt. Der Default gilt auch für die inhaltlichen Entscheidungen des Beitrags: Inhaltliche Entscheidungen, die ein im Prompt genannter Standard oder das Vorgabendokument beantwortet, werden ohne Rückfrage übernommen. Entscheidungen ohne eine solche Quelle werden dem Benutzer mit einer Empfehlung nach dem anerkannten Standard des Fachgebiets vorgelegt; die Empfehlung muss die offene Frage schließen können. Abweichungen sind während der Erarbeitung erlaubt und werden mit Begründung als Entscheidung in der Fachdatei festgehalten; vorgesehen sind vor allem Absenkungen für kleinere Projekte, eine Verschärfung benötigt einen Projektgrund. Vorgaben aus einem eingebrachten Vorgabendokument (REQ-001) haben Vorrang vor dem Default. Ein Standard, der für das Projekt nicht zutrifft, etwa WCAG ohne Benutzeroberfläche, entfällt mit Begründung.
 
 Defaults (Stand 16.10.2026):
 
@@ -259,7 +258,7 @@ Jeder Prompt liegt in einer eigenen Markdown-Datei in `lib/`.
 - **Dateinamen:** englisch, Kleinbuchstaben mit Bindestrich, nach Rolle oder Ergebnis benannt und ohne Nummern, zum Beispiel `security.md`. Die empfohlene Reihenfolge steht im Leitfaden. Die von den Prompts erzeugten Projektdateien behalten ihre üblichen Namen wie `REQUIREMENTS.md`.
 - **Aufbau:** Oben steht ein kurzer deutscher Kopf mit Rolle, Zweck, Voraussetzungen, Eingaben und Ergebnisdatei, darunter genau ein englischer Prompt-Block zum Kopieren. Ausführliche Anleitungen stehen im Leitfaden.
 - **Rollensatz:** Der Prompt-Block beginnt mit einem Satz, der Auftrag und Grenze der Rolle nennt, zum Beispiel: Act as the architecture contributor for this project; work only on the architecture and hand other topics back as open questions. Der Satz nennt keine Seniorität oder Expertenstufe.
-- **Eingaben:** Direkt nach dem Rollensatz folgt ein Eingabeblock aus benannten Feldern mit Hinweis. Leere Felder sind erlaubt; fehlende Angaben klärt die KI gezielt oder benennt sie als Lücke.
+- **Eingaben:** Direkt nach dem Rollensatz folgt ein Eingabeblock aus benannten Feldern mit Hinweis. Leere Felder sind erlaubt; fehlende Angaben klärt die KI gezielt oder benennt sie als Lücke. Der Eingabeblock enthält ein vorausgefülltes Feld mit den Defaults des Prompts (Standards mit Version). Der Benutzer kann sie vor dem Kopieren anpassen oder ersetzen; angepasste Werte gelten als seine Vorgabe.
 - **Leitfaden:** Der Leitfaden steht in `lib/README.md`, zusammen mit der Prompt-Übersicht, und ist deutsch. Je Schritt nennt er Zeitpunkt in der empfohlenen Reihenfolge, nötige Entscheidungen und Prüfkriterien; die Prompts selbst bleiben eigenständig kopierbar.
 - **Kennungen:** Beiträge verwenden stabile Kennungen: FR (Anforderung), AC (Abnahmekriterium), OQ (offene Frage), ADR (Architekturentscheidung), SEC (Sicherheitsanforderung), T (Test) und WP (Arbeitspaket). Eine Kennung wird nie neu vergeben; Verweise zwischen Beiträgen laufen über sie. Ein eigenes Klärungsprotokoll gibt es nicht: Klärungen stehen mit Begründung und Datum bei der offenen Frage (OQ) oder der Entscheidung (ADR).
 - **Version:** Die neue Fassung beginnt unter dem Namen Idea to Spec mit Version 1.0. Die Version steht nur an einer Stelle, in `lib/README.md`, nicht in jedem Prompt.

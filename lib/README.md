@@ -6,9 +6,11 @@ Für Websites, Webanwendungen, PWAs und Web-APIs ist die Library gedacht. Angren
 
 ## So arbeiten Sie
 
-1. Kopieren Sie den englischen Prompt-Block aus der Datei in eine KI-Session und füllen Sie den Eingabeblock aus. Leere Felder sind erlaubt; die KI fragt gezielt nach. Optional bringen Sie ein Vorgabendokument ein, etwa Unternehmensstandards oder vertraglich vereinbarte Details. Seine Vorgaben haben Vorrang vor den Standards der Prompts.
-2. Die KI führt im Gespräch und schreibt das Ergebnis in die Ergebnisdatei im Zielprojekt. Ohne Dateizugriff liefert sie einen vollständigen Markdown-Entwurf und sagt ausdrücklich, dass nichts gespeichert wurde. Übernehmen Sie ihn dann selbst.
-3. Eine eigene Session je Rolle wird empfohlen; eine gemeinsame Session funktioniert ebenso. Neue Sessions setzen anhand der Projektdateien fort, nicht anhand früherer Chats.
+1. Kopieren Sie den englischen Prompt-Block aus der Datei und füllen Sie den Eingabeblock aus. Leere Felder sind erlaubt. Prüfen Sie dabei das Feld **Defaults**: Dort stehen die Standards, die die KI ohne Rückfrage anwendet. Ersetzen Sie, was für Ihr Projekt nicht passt. Fügen Sie den Prompt dann in Ihre KI-Session ein.
+2. Übergeben Sie im Chat, was Sie schon haben: Projektunterlagen und optional ein Vorgabendokument, etwa Unternehmensstandards oder vertraglich vereinbarte Details. Das Vorgabendokument hat Vorrang vor den Defaults.
+3. Was weder Prompt noch Unterlagen beantworten, fragt die KI im Gespräch.
+4. Die KI führt im Gespräch und schreibt das Ergebnis in die Ergebnisdatei im Zielprojekt. Ohne Dateizugriff liefert sie einen vollständigen Markdown-Entwurf und sagt ausdrücklich, dass nichts gespeichert wurde. Übernehmen Sie ihn dann selbst.
+5. Eine eigene Session je Rolle wird empfohlen; eine gemeinsame Session funktioniert ebenso. Neue Sessions setzen anhand der Projektdateien fort, nicht anhand früherer Chats.
 
 Die Reihenfolge unten ist eine Empfehlung. Nutzen Sie nur, was Ihr Projekt braucht: Ein kleines Projekt braucht oft nur Anforderungen, Architektur und Arbeitspakete.
 
@@ -106,8 +108,8 @@ FR Anforderung · AC Abnahmekriterium · OQ offene Frage · ADR Architekturentsc
 
 ## Offene Fragen und Widersprüche
 
-- Die KI fragt nur, was Sie entscheiden müssen: Umfang, Kosten, rechtliches oder Sicherheitsrisiko und später nur aufwendig änderbare Punkte. Kleinigkeiten wie Formate, Benennungen oder Layoutdetails schlägt sie selbst als KI-Vorschlag mit kurzer Begründung vor und listet sie am Ende gesammelt auf. Sie bestätigen sie zusammen oder ändern einzelne.
-- Die KI legt Ihnen jede offene Entscheidung einzeln vor, eine pro Nachricht, die blockierende zuerst. Als Empfehlung ist die Vorgabe aus Ihrem Vorgabendokument vorausgewählt, sonst der anerkannte Standard des Fachgebiets (Default). Sie bestätigen oder wählen jederzeit etwas anderes; die Bestätigung schließt die Frage.
+- Was die Defaults im Prompt, Ihr Vorgabendokument oder die Projektunterlagen beantworten, übernimmt die KI ohne Rückfrage und nennt die Quelle.
+- Nur was keine dieser Stellen beantwortet, legt sie Ihnen vor: eine Entscheidung pro Nachricht, die blockierende zuerst, mit begründeter Empfehlung. Sie bestätigen oder wählen etwas anderes.
 - Die KI verwendet bereits beantwortete Fragen wieder.
 - Eine Entscheidung trifft die KI nur, wenn Sie sie ausdrücklich delegiert haben.
 - Lehnt ein Prompt eine bestätigte Entscheidung eines anderen Beitrags ab, überschreibt er sie nicht. Er legt eine offene Frage (OQ) mit Bezug an, und Sie entscheiden.
