@@ -82,7 +82,7 @@ Die Library muss den Einstieg mit einer noch unvollständigen Projektidee ermög
 
 **Akzeptanzkriterien:**
 
-- Der Einstieg erfasst Problem, Ziel, Nutzer, wesentliche Funktionen, typische Abläufe, Rahmenbedingungen und Ausschlüsse.
+- Der Einstieg erfasst Problem, Ziel, Nutzer, wesentliche Funktionen mit messbarem Qualitätsziel der Kernfunktionen, typische Abläufe, übliche Fälle der Zielplattform (etwa Rückkehr in die Anwendung oder Zurück-Navigation), Rahmenbedingungen und Ausschlüsse.
 - Vorhandene Projektunterlagen werden berücksichtigt; fehlende Angaben bleiben sichtbar.
 - Optional kann der Benutzer jedem Fachprompt im Chat Projektunterlagen und ein Vorgabendokument übergeben, etwa Unternehmensstandards oder vertraglich vereinbarte Details. Seine Vorgaben haben Vorrang vor den Defaults nach Q-006.
 - Daraus entsteht ein erster Anforderungsstand mit stabilen Kennungen und beobachtbaren Akzeptanzkriterien. Unzureichend geklärte Anforderungen erhalten einen erkennbaren Entwurfsstatus.
