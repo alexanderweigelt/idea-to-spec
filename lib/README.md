@@ -116,7 +116,7 @@ FR Anforderung · AC Abnahmekriterium · OQ offene Frage · ADR Architekturentsc
 
 ## Rücksprünge
 
-Erkenntnisse aus Design, Architektur oder Sicherheit können Anforderungen verändern. Gehen Sie dann zum zuständigen Prompt zurück, ändern Sie dort und führen Sie die Konsolidierung erneut aus. Dasselbe gilt für bestätigte Änderungen nach Konsolidierung oder Arbeitsplanung: Sie laufen über den zuständigen Fachprompt; betroffene Beiträge und Arbeitspakete werden aktualisiert oder konkret benannt. Setzen Sie erst fort, wenn die Prüfkriterien des betroffenen Schritts wieder erfüllt sind.
+Erkenntnisse aus Design, Architektur oder Sicherheit können Anforderungen verändern. Gehen Sie dann zum zuständigen Prompt zurück, ändern Sie dort und führen Sie die Konsolidierung erneut aus. Eine Entscheidung, die Sie bestätigen, trägt der jeweilige Prompt in derselben Runde in alle betroffenen Dateien ein, auch in die anderer Beiträge; dafür ist keine weitere Freigabe nötig. Neue Änderungen nach Konsolidierung oder Arbeitsplanung laufen über den zuständigen Fachprompt; betroffene Beiträge und Arbeitspakete werden aktualisiert oder konkret benannt. Setzen Sie erst fort, wenn die Prüfkriterien des betroffenen Schritts wieder erfüllt sind.
 
 ## Kleine Änderungen und Fehlerbehebungen (kurzer Weg)
 

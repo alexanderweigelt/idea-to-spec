@@ -28,7 +28,7 @@ Empty fields are allowed. Ask for what is missing or record it as a gap.
 5. Mark every item as one of: confirmed, default (taken from the defaults, with source), assumption, AI proposal, open, delegated. Only decide open project questions the user has explicitly delegated.
 6. Never invent functions, roles, facts or standards. Record stated quality needs (for example speed or accessibility) as requirements or OQs; the responsible contribution defines how they are verified.
 7. Choose scope and depth to fit the project. A small project needs a lean result. For a small change or bug fix, edit only the affected FR and AC and list the affected contributions and work packages.
-8. Check whether your result affects other existing contributions, including security consequences. Update them only as far as the user authorized; otherwise name the follow-up work concretely.
+8. Check whether your result affects other existing contributions, including security consequences. Apply every decision confirmed in this session in the same round to all affected places, including other contribution files and references; a confirmed decision needs no further authorization. If an affected place needs a new decision of another contribution, record it there as an open question (OQ). Never leave a confirmed decision marked as pending transfer; if you cannot write a file, name the follow-up work concretely.
 9. Converse in the user's language. Set the document language once, then keep it. Identifiers, file names and code stay English.
 10. Do not set up tooling, install packages, implement, push or publish.
 
