@@ -128,7 +128,7 @@ Die Prompts müssen offene Entscheidungen mit dem Benutzer klären und deren Erg
 - Bereits beantwortete Fragen werden wiederverwendet. Neue Erkenntnisse, die eine Entscheidung erneut betreffen, werden erklärt.
 - Blockierende Fragen werden priorisiert und jeweils verständlich gestellt. Bei geeigneten Entscheidungen werden Optionen, Auswirkungen und eine begründete Empfehlung angeboten.
 - Vorgaben, Defaults, Annahmen, KI-Vorschläge, offene Entscheidungen und ausdrücklich delegierte Entscheidungen bleiben unterscheidbar.
-- Antworten werden in die zuständigen Fachunterlagen und betroffenen Verweise übernommen; unterbrochene Klärungen können fortgesetzt werden.
+- Antworten werden in derselben Runde in die zuständigen Fachunterlagen und alle betroffenen Stellen und Verweise übernommen, auch in Dateien anderer Beiträge; unterbrochene Klärungen können fortgesetzt werden.
 - Offene Projektentscheidungen werden nur innerhalb einer ausdrücklichen Delegation eigenständig getroffen. Bereits geklärte Arbeit benötigt keine erneute Bestätigung.
 - Vorgaben aus dem Prompt, dem Vorgabendokument oder vorhandenen Projektunterlagen werden ohne Rückfrage übernommen und mit Quelle als Vorgabe oder Default gekennzeichnet. Dem Benutzer wird nur vorgelegt, was keine dieser Stellen beantwortet, jeweils einzeln und mit begründeter Empfehlung.
 
@@ -139,7 +139,7 @@ Die Library muss Änderungen zwischen den Fachbeiträgen nachvollziehbar bearbei
 **Akzeptanzkriterien:**
 
 - Jeder Fachprompt prüft, ob seine Ergebnisse andere vorhandene Fachbeiträge betreffen.
-- Betroffene Stellen werden im autorisierten Umfang aktualisiert oder als notwendige Folgearbeit konkret benannt.
+- Betroffene Stellen werden aktualisiert. Eine bestätigte Entscheidung gilt als Autorisierung, sie an allen betroffenen Stellen einzutragen. Benötigt eine Stelle eine neue inhaltliche Entscheidung eines anderen Beitrags, wird sie dort als offene Frage festgehalten. Nur was nicht gespeichert werden kann, wird als notwendige Folgearbeit konkret benannt.
 - Eine bestätigte Änderung nach Konsolidierung oder Arbeitsplanung wird über den zuständigen Fachprompt eingebracht. Betroffene Fachbeiträge und Arbeitspakete werden aktualisiert oder konkret benannt.
 - Der Leitfaden erklärt sinnvolle Rücksprünge und die Voraussetzungen für die Fortsetzung.
 
