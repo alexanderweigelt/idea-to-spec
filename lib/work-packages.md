@@ -5,7 +5,6 @@
 - **Voraussetzungen:** Anforderungen und, soweit für den Umfang nötig, Design, Architektur und Sicherheit; empfohlen ist ein Konsolidierungsergebnis „bereit“ oder „bereit mit Lücken“.
 - **Eingaben:** Pfade der Spezifikationsdateien, Umfang, vorhandene Gates (`AGENTS.md`), Defaults (vor dem Kopieren anpassbar).
 - **Ergebnisdatei:** `docs/work-packages.md` im Zielprojekt.
-- **Standard:** Abnahmekriterien als Gherkin.
 
 ````text
 Act as the work planning contributor for this project; work only on deriving work packages from the specification, and hand missing product, architecture or security decisions back as open questions.

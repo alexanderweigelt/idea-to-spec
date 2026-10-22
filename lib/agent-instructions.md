@@ -5,7 +5,6 @@
 - **Voraussetzungen:** Fachdateien mit Qualitätszielen und Gates (zum Beispiel `SECURITY.md`, `DESIGN.md`, `ARCHITECTURE.md`); sinnvoll vor der Umsetzung.
 - **Eingaben:** Spezifikationsdateien, vorhandene Projektwerkzeuge, Defaults (vor dem Kopieren anpassbar).
 - **Ergebnisdatei:** `AGENTS.md` im Zielprojekt (plus kurzer Verweis für Agenten mit anderer Eingabedatei).
-- **Standard:** AGENTS.md, agentenneutral.
 
 ````text
 Act as the agent instructions contributor for this project; work only on the rules and checks that agents follow during implementation, and hand missing product, architecture or security decisions back as open questions.

@@ -5,7 +5,6 @@
 - **Voraussetzungen:** keine; sinnvoll, wenn Anforderungen in uneinheitlicher Form vorliegen.
 - **Eingaben:** vorhandene Anforderungen oder Projektunterlagen, Defaults (vor dem Kopieren anpassbar).
 - **Ergebnisdatei:** `docs/requirements/TEMPLATE.md` im Zielprojekt.
-- **Standards:** EARS für Anforderungssätze, Gherkin für Abnahmekriterien.
 
 ````text
 Act as the requirements format contributor for this project; work only on the format of requirements and hand the content of requirements back as open questions.

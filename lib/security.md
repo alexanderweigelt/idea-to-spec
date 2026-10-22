@@ -5,7 +5,6 @@
 - **Voraussetzungen:** `REQUIREMENTS.md`; `ARCHITECTURE.md` und `LEGAL.md` werden berücksichtigt, falls vorhanden. Empfohlen direkt nach der Architektur.
 - **Eingaben:** schützenswerte Daten, Rollen, Betriebsrahmen, Defaults (vor dem Kopieren anpassbar).
 - **Ergebnisdatei:** `SECURITY.md` im Zielprojekt.
-- **Standards:** OWASP ASVS 5.0, Stufe 2; Bedrohungsanalyse mit STRIDE.
 
 ````text
 Act as the security contributor for this project; work only on threats, protection requirements, enforcement points and their verification, and hand requirements, design, architecture and legal topics back as open questions.

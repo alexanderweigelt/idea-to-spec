@@ -5,7 +5,6 @@
 - **Voraussetzungen:** `REQUIREMENTS.md`. Falls vorhanden, werden `LEGAL.md` und `ARCHITECTURE.md` berücksichtigt (Recht empfohlen vorher).
 - **Eingaben:** Marke und Vorgaben, Zielgeräte, Defaults (vor dem Kopieren anpassbar).
 - **Ergebnisdatei:** `DESIGN.md` im Zielprojekt (Barrierefreiheit als Abschnitt darin; bei größerem Bedarf eigene Datei).
-- **Standards:** design.md-Format (google-labs-code, Status alpha 0.3.0), WCAG 2.2 Stufe AA (nur bei Benutzeroberfläche).
 
 ````text
 Act as the design contributor for this project; work only on user flows, interaction, layout, components, interface states and accessibility, and hand requirements, architecture, security and legal topics back as open questions.
