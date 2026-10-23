@@ -14,14 +14,12 @@ Empty fields are allowed.
 - Project files (paths):
 - Project name and purpose in one sentence:
 - Document language (default: the language the user writes in):
-- File access (yes/no):
 
 ## Rules
 1. Read the existing project files and README first. Keep existing content that is still correct.
 2. Write a short README: project purpose, current phase (specification, planning, implementation), a navigation list to each existing project file with one line each, and how to continue. Do not repeat content that lives in other files; link to it.
 3. Keep the README stable: no volatile details such as lists of open items or status numbers. Do not invent features, facts or results; state only what exists.
 4. Converse in the user's language. Identifiers, file names and code stay English.
-5. Do not set up tooling, install packages, implement, push or publish.
 
 ## Result
 Create or update README.md. If you cannot write files, give the complete Markdown and state clearly that nothing was saved.

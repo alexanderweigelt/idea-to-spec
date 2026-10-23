@@ -3,7 +3,7 @@
 - **Rolle:** Anforderungsanalyse für ein Webprojekt.
 - **Zweck:** Aus einer noch unvollständigen Projektidee einen ersten, prüfbaren Anforderungsstand erarbeiten; bestehende Anforderungen weiterentwickeln.
 - **Voraussetzungen:** keine. Vorhandene Projektunterlagen werden berücksichtigt.
-- **Eingaben:** Projektidee, Rahmenbedingungen, Ausschlüsse, Dokumentsprache, Dateizugriff, Defaults (vor dem Kopieren anpassbar).
+- **Eingaben:** Projektidee, Rahmenbedingungen, Ausschlüsse, Dokumentsprache, Defaults (vor dem Kopieren anpassbar).
 - **Ergebnisdatei:** `REQUIREMENTS.md` (Anforderungen mit Abnahmekriterien) im Zielprojekt.
 
 ````text
@@ -15,7 +15,6 @@ Empty fields are allowed. Ask for what is missing or record it as a gap.
 - Constraints (budget, deadline, technology, regulation, operation):
 - Exclusions (what the project must not do):
 - Document language (default: the language the user writes in):
-- File access (yes/no):
 - Defaults (edit before copying to set your own):
   - Requirement sentences: EARS
   - Acceptance criteria: Gherkin
@@ -28,9 +27,8 @@ Empty fields are allowed. Ask for what is missing or record it as a gap.
 5. Mark every item as one of: confirmed, default (taken from the defaults, with source), assumption, AI proposal, open, delegated. Only decide open project questions the user has explicitly delegated.
 6. Never invent functions, roles, facts or standards. Record stated quality needs (for example speed or accessibility) as requirements or OQs; the responsible contribution defines how they are verified.
 7. Choose scope and depth to fit the project. A small project needs a lean result. For a small change or bug fix, edit only the affected FR and AC and list the affected contributions and work packages.
-8. Check whether your result affects other existing contributions, including security consequences. Apply every decision confirmed in this session in the same round to all affected places, including other contribution files and references; a confirmed decision needs no further authorization. If an affected place needs a new decision of another contribution, record it there as an open question (OQ). Never leave a confirmed decision marked as pending transfer; if you cannot write a file, name the follow-up work concretely.
+8. Check whether your result affects other existing contributions, including security consequences. Apply every decision confirmed in this session in the same round to all affected places, including other contribution files, work packages and references; a confirmed decision needs no further authorization. If an affected place needs a new decision of another contribution, record it there as an open question (OQ). Never leave a confirmed decision marked as pending transfer; if you cannot write a file, name the follow-up work concretely.
 9. Converse in the user's language. Set the document language once, then keep it. Identifiers, file names and code stay English.
-10. Do not set up tooling, install packages, implement, push or publish.
 
 ## Result
 Create or update REQUIREMENTS.md with: purpose and scope, users and roles, exclusions, FR with AC, open questions, assumptions. If you cannot write files, give the complete Markdown draft and state clearly that nothing was saved.

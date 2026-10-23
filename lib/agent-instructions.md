@@ -15,7 +15,6 @@ Empty fields are allowed.
 - Existing tooling and commands (build, test, lint, security checks):
 - Other agent input files in use (for example CLAUDE.md):
 - Document language: English (agent instructions are always English)
-- File access (yes/no):
 - Defaults (edit before copying to set your own):
   - Agent instructions: AGENTS.md, agent-neutral
 
@@ -26,7 +25,6 @@ Empty fields are allowed.
 4. Keep it agent-neutral: no vendor-specific instructions. If another agent reads a different input file, add a short file that only points to AGENTS.md (for example CLAUDE.md containing a reference line).
 5. Do not invent rules, commands or facts. Keep the file short; remove what an agent does not need to act.
 6. Converse in the user's language; the file itself is English.
-7. Do not set up tooling, install packages, implement, push or publish.
 
 ## Result
 Create or update AGENTS.md and the pointer file if requested. If you cannot write files, give the complete Markdown and state clearly that nothing was saved.
