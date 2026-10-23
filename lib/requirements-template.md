@@ -13,7 +13,6 @@ Act as the requirements format contributor for this project; work only on the fo
 Empty fields are allowed.
 - Existing requirements (paths or pasted text):
 - Document language (default: the language the user writes in):
-- File access (yes/no):
 - Defaults (edit before copying to set your own):
   - Requirement sentences: EARS
   - Acceptance criteria: Gherkin
@@ -24,7 +23,6 @@ Empty fields are allowed.
 3. If requirements exist, convert them to the template. Unclear or missing acceptance criteria stay visible as draft or open question; do not invent them.
 4. Never reassign identifiers. Do not invent facts or requirements.
 5. Converse in the user's language. Identifiers, file names and code stay English.
-6. Do not set up tooling, install packages, implement, push or publish.
 
 ## Result
 Create docs/requirements/TEMPLATE.md and, if requirements exist, the converted requirements in their file, plus a list of items that need clarification. If you cannot write files, give the complete Markdown and state clearly that nothing was saved.

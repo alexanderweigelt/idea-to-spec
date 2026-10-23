@@ -127,7 +127,7 @@ Erkenntnisse aus Design, Architektur oder Sicherheit können Anforderungen verä
 
 ## Übergang in die Umsetzung
 
-Idea to Spec liefert Spezifikation und Arbeitspakete, keine Umsetzungsprompts. Implementierung, Tests, Review und Qualitätssicherung brauchen einen eigenen Auftrag, beginnen mit den Arbeitspaketen, den Agent-Anweisungen und den Gates und prüfen ihre Ergebnisse gegen die Spezifikation. Tatsächliche Prüfergebnisse werden dokumentiert; geplante Kommandos gelten nicht als ausgeführt. Setup, Paketinstallation, Deployment, Infrastrukturkäufe, Pushes, Pull Requests und Veröffentlichungen benötigen jeweils eine ausdrückliche Freigabe.
+Idea to Spec liefert Spezifikation und Arbeitspakete, keine Umsetzungsprompts. Implementierung, Tests, Review und Qualitätssicherung brauchen einen eigenen Auftrag, beginnen mit den Arbeitspaketen, den Agent-Anweisungen und den Gates und prüfen ihre Ergebnisse gegen die Spezifikation. Tatsächliche Prüfergebnisse werden dokumentiert; geplante Kommandos gelten nicht als ausgeführt. Setup, Paketinstallation, Deployment und Infrastrukturkäufe brauchen ebenfalls einen eigenen Auftrag.
 
 ## Begriffe
 

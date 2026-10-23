@@ -3,7 +3,7 @@
 - **Rolle:** Abschluss offener Entscheidungen und Festhalten eines Spezifikationsstands (begleitender Schritt).
 - **Zweck:** Blockierende Entscheidungen mit dem Benutzer schließen und einen geprüften, referenzierbaren Stand der Spezifikation festhalten.
 - **Voraussetzungen:** vorhandene Fachbeiträge; sinnvoll nach der Konsolidierung und vor den Arbeitspaketen.
-- **Eingaben:** Umfang der Baseline, Git-Zugriff (ja/nein).
+- **Eingaben:** Umfang der Baseline.
 - **Ergebnisdatei:** `docs/baseline-review.md` im Zielprojekt.
 
 ````text
@@ -12,9 +12,7 @@ Act as the baseline contributor for this project; work only on closing blocking 
 ## Inputs
 Empty fields are allowed.
 - Scope of the baseline:
-- Git available (yes/no):
 - Document language (default: the language the user writes in):
-- File access (yes/no):
 
 ## Rules
 1. Read the specification files and the consolidation report and list all open questions (OQ), unconfirmed decisions, and confirmed decisions not yet applied in every affected file in the scope. Sort by what blocks work packages.
@@ -23,7 +21,6 @@ Empty fields are allowed.
 4. Record the baseline in baseline-review.md: scope, date, files with their identifiers, decisions closed and applied, gaps remaining and the scope they affect, real operating facts still needed. If Git is available, reference a commit as the baseline only if it contains the reviewed content; otherwise record the reviewed local state and its differences from the base commit.
 5. State only what was actually checked. Do not invent results.
 6. Converse in the user's language. Identifiers, file names and code stay English.
-7. Do not set up tooling, install packages, implement, push or publish.
 
 ## Result
 Create or update docs/baseline-review.md and apply the closed decisions in all affected files. If you cannot write files, give the complete Markdown and state clearly that nothing was saved.

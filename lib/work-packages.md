@@ -15,7 +15,6 @@ Empty fields are allowed. Ask for what is missing or record it as a gap.
 - Scope to plan:
 - Existing gates and check commands (for example from AGENTS.md):
 - Document language (default: the language the user writes in):
-- File access (yes/no):
 - Defaults (edit before copying to set your own):
   - Acceptance criteria: Gherkin
 
@@ -29,7 +28,6 @@ Empty fields are allowed. Ask for what is missing or record it as a gap.
 7. Real operating facts still needed (accounts, domains, keys) are named with the package that depends on them. For each value that only measurement on the real system can provide, plan a "measure, then set" package; its result goes into the specification through the responsible contribution.
 8. Mark every item as confirmed, default (taken from the defaults, with source), assumption, AI proposal, open or delegated; decide only what the user explicitly delegated. If a confirmed change arrives after planning, update the affected packages or name them concretely.
 9. Keep the result lean for small projects. Converse in the user's language. Identifiers, file names and code stay English.
-10. Do not set up tooling, install packages, implement, push or publish.
 
 ## Result
 Create or update docs/work-packages.md with: package list, coverage table (FR to WP), execution order, open questions. If you cannot write files, give the complete Markdown draft and state clearly that nothing was saved.

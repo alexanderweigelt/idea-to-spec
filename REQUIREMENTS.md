@@ -224,8 +224,6 @@ Die Fach- und Planungsaufträge erzeugen Spezifikationen und Pläne. Setup, Pake
 
 Der Leitfaden beschreibt, dass die anschließenden Schritte für Implementierung, Tests, Review und QA ihre Ergebnisse gegen die maßgebliche Spezifikation prüfen und tatsächliche Prüfergebnisse dokumentieren.
 
-Veröffentlichungen, Pushes, Pull Requests und Nachrichten benötigen eine entsprechende Autorisierung.
-
 ### Q-005 – Prüfbare Qualitätsziele
 
 Jedes übergreifende Qualitätsziel des Zielprojekts muss als Kette Ziel → Kriterium → Nachweis → Gate festgelegt werden. Der Fachprompt, der für das Qualitätsziel zuständig ist, erarbeitet die Kette und hält sie in seiner Fachdatei fest. Gemeinsame Vorgaben für alle Prompts enthalten keine Qualitätsziele.
