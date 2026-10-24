@@ -1,4 +1,4 @@
-# Idea to Spec – Leitfaden (Version 1.0)
+# Idea to Spec – Leitfaden (Version 1.0.0-beta.1)
 
 Idea to Spec führt ein Webprojekt von der Projektidee zu einer abgestimmten, prüfbaren Spezifikation und daraus abgeleiteten Arbeitspaketen. Jeder Schritt ist ein kopierbarer Prompt. Die Prompts arbeiten gemeinsam mit Ihnen, halten Ergebnisse in Projektdateien fest und sind unabhängig voneinander nutzbar.
 
