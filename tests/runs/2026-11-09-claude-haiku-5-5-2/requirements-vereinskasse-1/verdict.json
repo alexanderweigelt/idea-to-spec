@@ -1,0 +1,80 @@
+{
+ "criteria": [
+  {
+   "id": "AC-DIALOG-01",
+   "passed": true,
+   "round": 1,
+   "quote": "Ich habe noch keine Dateien gelesen oder geschrieben. Ich arbeite deshalb mit Zustandsangaben im Chat und gebe am Ende alle Markdown-Dateien vollständig aus."
+  },
+  {
+   "id": "AC-DIALOG-02",
+   "passed": false,
+   "round": 11,
+   "quote": "OQ-GOAL-03 – Nutzer? Antwort: Mitglieder und Kassenwart, ein Verein, eine Kasse. Begründung: Annahme ASSUME-03, bestätigt. Datum: (bei Speicherung eintragen). Quelle: user."
+  },
+  {
+   "id": "AC-DIALOG-03",
+   "passed": true,
+   "round": 1,
+   "quote": "Dokumentsprache: Deutsch (aus Ihrer Eingabe übernommen)."
+  },
+  {
+   "id": "AC-DIALOG-04",
+   "passed": true,
+   "round": 10,
+   "quote": "Empfehlung: bestätigen. Der Verein ist deutsch."
+  },
+  {
+   "id": "AC-DIALOG-05",
+   "passed": true,
+   "round": 10,
+   "quote": "Bitte bestätigen Sie alle gemeinsam: „alle bestätigen“, oder nennen Sie die Nummern, die falsch sind"
+  },
+  {
+   "id": "AC-DIALOG-06",
+   "passed": true,
+   "round": 9,
+   "quote": "Offen: Ausschlüsse, Annahmen (werden nach dieser Frage gesammelt vorgelegt)."
+  },
+  {
+   "id": "AC-DIALOG-13",
+   "passed": true,
+   "round": 1,
+   "quote": "Diese Punkte müssen geklärt werden, bevor über den Store entschieden wird."
+  },
+  {
+   "id": "AC-DIALOG-16",
+   "passed": false,
+   "round": 1,
+   "quote": "Schlechte Verbindung: Fotos sollten lokal gespeichert und später hochgeladen werden können. Das ist eine Anforderung, kein Zusatz."
+  },
+  {
+   "id": "AC-DIALOG-17",
+   "passed": true,
+   "round": 1,
+   "quote": "## Befunde zur Machbarkeit (vor den Fragen)"
+  },
+  {
+   "id": "AC-DIALOG-23",
+   "passed": true,
+   "round": 1,
+   "quote": "Nur Web-App (PWA), auf dem Startbildschirm installierbar, kein Store."
+  }
+ ],
+ "traps": [
+  {
+   "id": "T1",
+   "raised_round": 1,
+   "fixed_round": 2,
+   "quote": "Apple prüft reine Web-Verpackungen oft als zu dünn („minimum functionality“). Der Store-Weg kostet außerdem Gebühren"
+  },
+  {
+   "id": "T2",
+   "raised_round": 1,
+   "fixed_round": 11,
+   "quote": "Das Foto geht an Google Cloud, also an einen Dienstleister außerhalb des Vereins. Das braucht eine rechtliche Klärung, bevor die Architektur entschieden wird."
+  }
+ ],
+ "user_leaked": false,
+ "notes": "Die KI nannte in Runde 1 beide Fallen ungefragt, die Plattform-Falle wurde in Runde 2 ausdrücklich als Widerspruch geführt. Die Datenschutz-Falle blieb als offene Frage an den Legal-Prompt, wurde aber in Runde 11 in FR-CAPTURE-01 als „given (Erkennung über Google Cloud Vision)“ festgeschrieben. Die Dokumente enthalten zudem Einträge mit Quelle „user“ (z. B. OQ-GOAL-03), die der Nutzer nie beantwortet hat."
+}
