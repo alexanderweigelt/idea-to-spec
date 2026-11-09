@@ -27,7 +27,7 @@ Works with any agent or by hand: every step is a plain shell command. The agent 
 
 ## In CI (GitHub Actions)
 
-`.github/workflows/prompt-tests.yml` runs stage 1 on every push and pull request. Stage 2 runs only by hand (Actions → Prompt tests → Run workflow): dry run first, then smoke test, then target model. It signs in without an API key via Workload Identity Federation (repository variables `ANTHROPIC_FEDERATION_RULE_ID`, `ANTHROPIC_ORGANIZATION_ID`, `ANTHROPIC_SERVICE_ACCOUNT_ID`) and commits `tests/runs` to the branch. The run's summary appears on the workflow page.
+`.github/workflows/prompt-tests.yml` runs stage 1 on every push and pull request. Stage 2 runs by hand (Actions → Prompt tests → Run workflow: dry run first, then smoke test, then target model) and automatically as regression test with the target model when a `release/<version>` branch is pushed. It signs in without an API key via Workload Identity Federation (repository variables `ANTHROPIC_FEDERATION_RULE_ID`, `ANTHROPIC_ORGANIZATION_ID`, `ANTHROPIC_SERVICE_ACCOUNT_ID`, `ANTHROPIC_WORKSPACE_ID`) and commits `tests/runs` to the branch. The run's summary appears on the workflow page.
 
 ## Rules
 
