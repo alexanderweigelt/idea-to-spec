@@ -123,7 +123,8 @@ def estimate(cfg, models, first_message, persona):
     """Rough cost per run from text length (chars/3.5 tokens) and typical turn sizes; no API call."""
     budget = Budget(cfg["prices_usd_per_mtok"], 1e9, 1e9)
     base = len(first_message) / 3.5
-    rounds, ai_turn, user_turn, final_out = 8, 1500, 80, 14000
+    # Calibrated on the first Opus run (2026-11-09): about 3500 output tokens per turn incl. thinking.
+    rounds, ai_turn, user_turn, final_out = 8, 3500, 80, 30000
     tested = user = 0.0
     ctx = base
     for rnd in range(1, rounds + 1):
