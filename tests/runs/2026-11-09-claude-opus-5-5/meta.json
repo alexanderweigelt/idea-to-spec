@@ -1,0 +1,20 @@
+{
+ "scenario": "requirements-vereinskasse",
+ "prompt": "lib/requirements.md",
+ "models": {
+  "tested": "claude-opus-5-5",
+  "user": "claude-haiku-5-5",
+  "judge": "claude-haiku-5-5"
+ },
+ "models_reported": {
+  "tested": "claude-opus-5-5",
+  "judge": "claude-haiku-5-5"
+ },
+ "date": "2026-11-09T13:06:54",
+ "hash": "a2bf50d8a582a4f8",
+ "automatic": true,
+ "limits": {
+  "per_run": 2.0,
+  "per_test": 10.0
+ }
+}

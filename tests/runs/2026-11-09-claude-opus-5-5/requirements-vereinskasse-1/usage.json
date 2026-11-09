@@ -1,0 +1,42 @@
+{
+ "automatic": true,
+ "models": {
+  "tested": "claude-opus-5-5",
+  "user": "claude-haiku-5-5",
+  "judge": "claude-haiku-5-5"
+ },
+ "reported": {
+  "tested": "claude-opus-5-5",
+  "judge": "claude-haiku-5-5"
+ },
+ "roles": {
+  "tested": {
+   "model": "claude-opus-5-5",
+   "calls": 7,
+   "input": 28,
+   "output": 47181,
+   "cache_write": 27349,
+   "cache_read": 86334,
+   "usd": 1.0977438
+  },
+  "user": {
+   "model": "claude-haiku-5-5",
+   "calls": 6,
+   "input": 24,
+   "output": 1227,
+   "cache_write": 15407,
+   "cache_read": 42080,
+   "usd": 0.002962575
+  },
+  "judge": {
+   "model": "claude-haiku-5-5",
+   "calls": 1,
+   "input": 4,
+   "output": 6464,
+   "cache_write": 29281,
+   "cache_read": 0,
+   "usd": 0.006892525000000001
+  }
+ },
+ "usd": 1.1076
+}
