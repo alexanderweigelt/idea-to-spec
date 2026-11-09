@@ -1,7 +1,7 @@
 # FR-SPEC-04 – Einheitliches Dokumentgerüst
 Owner: REQUIREMENTS.md · Group: SPEC · Status: confirmed
 ## Statement
-Jedes Dokument muss dem Gerüst folgen, das sein Prompt vorgibt (Zuständigkeit oben, Inhalt nach Themengruppen, Katalog mit ID, Gruppe, Titel und Status Entwurf/bestätigt sowie offene Fragen am Ende, Verweise als Link, dessen sichtbarer Text nur die ID ist), ausgenommen AGENTS.md.
+Jedes Dokument muss dem Gerüst folgen, das sein Prompt vorgibt (Zuständigkeit oben, Inhalt nach Themengruppen, Katalog mit ID, Gruppe, Titel und Status draft/confirmed sowie offene Fragen am Ende, Verweise als Link, dessen sichtbarer Text nur die ID ist), ausgenommen AGENTS.md.
 ## Rationale
 source: user
 ## Acceptance criteria
@@ -15,7 +15,7 @@ Then folgen Zuständigkeit, Themengruppen, Katalog und offene Fragen in dieser R
 ```gherkin
 Given ein Katalog
 When man seine Spalten prüft
-Then sind es ID, Gruppe, Titel und Status mit den Werten Entwurf oder bestätigt.
+Then sind es ID, Gruppe, Titel und Status mit den Werten draft oder confirmed.
 ```
 ### AC-SPEC-09
 ```gherkin

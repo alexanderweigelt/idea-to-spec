@@ -1,7 +1,7 @@
 # FR-SPEC-02 – Wann die Spezifikation fertig ist
 Owner: REQUIREMENTS.md · Group: SPEC · Status: confirmed
 ## Statement
-Die Spezifikation darf erst als fertig gelten, wenn die Liste nach [FR-SPEC-01](FR-SPEC-01.md) leer ist oder jeder Punkt bewusst akzeptiert wurde, kein Katalogeintrag auf „Entwurf“ steht und ein Mensch sie freigegeben hat.
+Die Spezifikation darf erst als fertig gelten, wenn die Liste nach [FR-SPEC-01](FR-SPEC-01.md) leer ist oder jeder Punkt bewusst akzeptiert wurde, kein Katalogeintrag auf „draft“ steht und ein Mensch sie freigegeben hat.
 ## Rationale
 source: user
 ## Acceptance criteria
@@ -13,7 +13,7 @@ Then gilt die Spezifikation nicht als fertig.
 ```
 ### AC-SPEC-04
 ```gherkin
-Given ein Katalogeintrag auf „Entwurf“
+Given ein Katalogeintrag auf „draft“
 When man den Stand prüft
 Then gilt die Spezifikation nicht als fertig.
 ```

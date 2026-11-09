@@ -1,0 +1,28 @@
+{
+  "provider": "anthropic",
+  "models": {
+    "tested": "claude-haiku-5-5",
+    "user": "claude-haiku-5-5",
+    "judge": "claude-haiku-5-5"
+  },
+  "prices_usd_per_mtok": {
+    "_note": "Listenpreise Anthropic API, Stand 2026-10-06. Cache-Schreiben = 1,25 x input (5-Minuten-Cache).",
+    "claude-haiku-5-5": {"input": 0.10, "output": 0.50, "cache_read": 0.01},
+    "claude-sonnet-5-5": {"input": 2.00, "output": 10.00, "cache_read": 0.20},
+    "claude-opus-5-5": {"input": 4.00, "output": 20.00, "cache_read": 0.20}
+  },
+  "limits_usd": {"per_run": 2.0, "per_test": 10.0},
+  "runs": 3,
+  "stop_after_equal": 2,
+  "max_rounds": 12,
+  "max_tokens": {"tested": 24000, "user": 800, "judge": 6000},
+  "effort": {"tested": null, "user": "low", "judge": "medium"},
+  "static": {
+    "_note": "Struktur, die lib/ heute nutzt, um AC-FLOW-03/-05/-08 zu erfüllen. Ändert ein Neuaufbau von lib/ diese Namen, hier anpassen.",
+    "header_rows": ["Rolle", "Braucht zwingend", "Nutzt, falls vorhanden", "Erzeugt", "Fertig, wenn"],
+    "sections": ["ROLE", "GOAL", "INPUT", "DEFAULTS", "DOCUMENTS", "HOW YOU WORK", "RULES FOR IDS AND FILES", "OUTPUT", "DONE WHEN"],
+    "documents_fields": ["Requires:", "Uses if present:", "Produces:"],
+    "tool_words": ["Claude Code", "ChatGPT", "Copilot", "Cursor", "Gemini", "Artifact", "Canvas", "slash command", "MCP", ".claude/", "Custom GPT", "Custom Instructions"],
+    "max_core_prompts": 8
+  }
+}

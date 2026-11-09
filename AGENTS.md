@@ -10,6 +10,7 @@ Instructions for anyone – human or AI agent – working on this repository.
 | Look up one requirement | `docs/requirements/<ID>.md` |
 | Write a new requirement | [docs/REQUIREMENT_TEMPLATE.md](docs/REQUIREMENT_TEMPLATE.md) |
 | Work on the prompts (the product) | [lib/](lib/README.md) |
+| Test the prompts (static check, scenario runs with cost limit) | [skills/test-prompts/SKILL.md](skills/test-prompts/SKILL.md) |
 | Understand IDs and the state of the specification | [README.md](README.md) (sections "IDs lesen" and "Specification") |
 
 Open points are recorded as OQ in REQUIREMENTS.md, never in this file.
