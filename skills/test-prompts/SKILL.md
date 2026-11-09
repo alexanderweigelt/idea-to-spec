@@ -25,6 +25,10 @@ Works with any agent or by hand: every step is a plain shell command. The agent 
 
 5. **Report.** Read only `tests/runs/<latest>/summary.md` (not the transcripts – they cost tokens). Report: passed runs, unmet checks with their AC IDs and quotes, cost. The human reviews samples in `transcript.jsonl` and `outputs/`.
 
+## In CI (GitHub Actions)
+
+`.github/workflows/prompt-tests.yml` runs stage 1 on every push and pull request. Stage 2 runs only by hand (Actions → Prompt tests → Run workflow): dry run first, then smoke test, then target model. It signs in without an API key via Workload Identity Federation (repository variables `ANTHROPIC_FEDERATION_RULE_ID`, `ANTHROPIC_ORGANIZATION_ID`, `ANTHROPIC_SERVICE_ACCOUNT_ID`) and commits `tests/runs` to the branch. The run's summary appears on the workflow page.
+
 ## Rules
 
 - Hard limits (`tests/config.json` → `limits_usd`) are never raised without the human's word.
