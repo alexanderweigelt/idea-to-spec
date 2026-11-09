@@ -79,6 +79,7 @@ jobs:
           fetch
           nohup bash -c "$(declare -f fetch); while sleep 120; do fetch; done" >/dev/null 2>&1 &
       - name: Run scenario
+        shell: bash   # with pipefail: a crash in run.py fails the step despite tee
         run: |
           args="$SCENARIO --model $MODEL --runs $RUNS"
           if [ "$DRY_RUN" = "true" ]; then args="$args --dry-run"; fi
@@ -87,7 +88,7 @@ jobs:
           latest=$(ls -td tests/runs/*/ 2>/dev/null | head -1)
           if [ -n "$latest" ] && [ -f "$latest/summary.md" ]; then cat "$latest/summary.md" >> "$GITHUB_STEP_SUMMARY"; fi
       - name: Commit results
-        if: env.DRY_RUN != 'true' && env.COMMIT == 'true'
+        if: always() && env.DRY_RUN != 'true' && env.COMMIT == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
