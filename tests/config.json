@@ -15,7 +15,7 @@
   "runs": 3,
   "stop_after_equal": 2,
   "max_rounds": 12,
-  "max_tokens": {"tested": 24000, "user": 800, "judge": 6000},
+  "max_tokens": {"tested": 24000, "user": 800, "judge": 16000},
   "effort": {"tested": null, "user": "low", "judge": "medium"},
   "static": {
     "_note": "Struktur, die lib/ heute nutzt, um AC-FLOW-03/-05/-08 zu erfüllen. Ändert ein Neuaufbau von lib/ diese Namen, hier anpassen.",

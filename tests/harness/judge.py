@@ -55,4 +55,5 @@ def judge(chat, model, max_tokens, effort, expected_md, ac_ids, transcript, outp
     try:
         return json.loads(reply.text), reply.model
     except json.JSONDecodeError:
-        return {"error": "Richter-Antwort ist kein JSON", "raw": reply.text[:2000]}, reply.model
+        return {"error": f"Richter-Antwort ist kein JSON (stop_reason: {reply.stop_reason})",
+                "raw": reply.text[:2000]}, reply.model
