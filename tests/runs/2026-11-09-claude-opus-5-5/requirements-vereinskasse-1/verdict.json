@@ -1,0 +1,80 @@
+{
+ "criteria": [
+  {
+   "id": "AC-DIALOG-01",
+   "passed": true,
+   "round": 1,
+   "quote": "Ich habe keinen Dateizugriff und beginne deshalb mit Ihren Angaben aus dem Formular."
+  },
+  {
+   "id": "AC-DIALOG-02",
+   "passed": true,
+   "round": 7,
+   "quote": "Alle 16 Annahmen sind als geschlossene Entscheidungen erfasst (Quelle: Nutzer), und alle Katalogeinträge stehen auf „confirmed“."
+  },
+  {
+   "id": "AC-DIALOG-03",
+   "passed": true,
+   "round": 5,
+   "quote": "Dazu stelle ich keine Frage. Das Thema geht vollständig an den Legal-Prompt"
+  },
+  {
+   "id": "AC-DIALOG-04",
+   "passed": true,
+   "round": 1,
+   "quote": "Bis dahin nehme ich an: Das Papieroriginal geht weiterhin an den Kassenwart."
+  },
+  {
+   "id": "AC-DIALOG-05",
+   "passed": true,
+   "round": 6,
+   "quote": "Bitte antworten Sie mit „alle bestätigt“ oder nennen Sie die Nummern, die Sie ändern möchten"
+  },
+  {
+   "id": "AC-DIALOG-06",
+   "passed": true,
+   "round": 5,
+   "quote": "Danke. Problem, Ziel und Mengengerüst sind entschieden (Quelle: Nutzer)."
+  },
+  {
+   "id": "AC-DIALOG-13",
+   "passed": true,
+   "round": 1,
+   "quote": "Reine Web-Hüllen werden nach Apples Regel 4.2 („Minimum Functionality“) häufig abgelehnt."
+  },
+  {
+   "id": "AC-DIALOG-16",
+   "passed": true,
+   "round": 1,
+   "quote": "→ **Empfehlung:** zunächst nur als PWA anbieten, die Stores eventuell später."
+  },
+  {
+   "id": "AC-DIALOG-17",
+   "passed": true,
+   "round": 1,
+   "quote": "**1. Die Store-Pflicht ist für eine PWA der größte Kosten- und Risikotreiber.**"
+  },
+  {
+   "id": "AC-DIALOG-23",
+   "passed": true,
+   "round": 5,
+   "quote": "CSV ist eine einfache Tabellendatei, die sich in Excel öffnen lässt."
+  }
+ ],
+ "traps": [
+  {
+   "id": "T1",
+   "raised_round": 1,
+   "fixed_round": 2,
+   "quote": "Reine Web-Hüllen werden nach Apples Regel 4.2 („Minimum Functionality“) häufig abgelehnt. | Entscheidung Runde 2: OQ-PLATFORM-01 Nur als PWA, Stores eventuell später"
+  },
+  {
+   "id": "T2",
+   "raised_round": 1,
+   "fixed_round": 2,
+   "quote": "Die Belegfotos gehen an Google. Das ist ein Datenschutzthema für den Legal-Prompt. | Runde 2: OQ-OCR-03 Übermittlung an Google, Beantwortet vom Legal-Prompt"
+  }
+ ],
+ "user_leaked": false,
+ "notes": "Beide Fallen (PWA im App Store, Datenschutz bei Google Cloud Vision) hat die KI bereits in Runde 1 von sich aus und vor dem Festschreiben angesprochen. Der Verlauf endet abgeschnitten mitten in der Liste der Annahmen (OQ-QUALITY-05) in Runde 7, daher ist die Vollständigkeit des Ergebnisdokuments nicht prüfbar."
+}

@@ -2,26 +2,49 @@
 
 Von der Projektidee zu einer prüfbaren Spezifikation: kopierbare, rollenbasierte Prompts für Webprojekte.
 
-Idea to Spec führt ein Webprojekt (Website, Webanwendung, PWA oder Web-API) schrittweise von einer noch unvollständigen Idee zu einer abgestimmten, konsistenten Spezifikation und daraus abgeleiteten, überprüfbaren Arbeitspaketen. Das ist die Grundlage für Spec-Driven Development: Planung, Umsetzung, Tests, Review und Abnahme richten sich nach der Spezifikation.
+Idea to Spec führt ein Webprojekt schrittweise von einer noch unvollständigen Idee zu einer abgestimmten, widerspruchsfreien Spezifikation und daraus abgeleiteten, prüfbaren Arbeitspaketen. Das ist die Grundlage für Spec-Driven Development: Planung, Umsetzung, Tests, Review und Abnahme richten sich nach der Spezifikation.
 
-## Was Sie hier finden
+## Was du hier findest
 
-- **Fachprompts** für Anforderungen, Recht, Design, Architektur, Sicherheit, Konsolidierung und Arbeitspakete. Jeder Prompt ist ein eigenständiger Arbeitsauftrag, den Sie in eine KI-Session kopieren. Die KI erarbeitet den Beitrag gemeinsam mit Ihnen und legt ihn in einer Projektdatei ab.
-- **Begleitende Schritte** wie Anforderungsvorlage, Entscheidungen und Baseline, Projekt-README und Agent-Anweisungen.
-- **Einen Leitfaden**, der Auswahl, Reihenfolge und Anwendung der Prompts erklärt, einschließlich eines kurzen Wegs für kleine Änderungen und des Übergangs in die Umsetzung.
+- **Fachprompts** für Anforderungen, Recht (optional), Design, Architektur, Sicherheit, Prüfung und Arbeitspakete sowie einen Prompt für AGENTS.md als Übergang in die Umsetzung. Jeder Prompt ist ein eigenständiger Arbeitsauftrag, den du in einen KI-Chat kopierst. Die KI erarbeitet den Beitrag gemeinsam mit dir und legt ihn in einer Projektdatei ab.
+- **Einen Leitfaden**, der Reihenfolge und Anwendung der Prompts erklärt, einschließlich Änderungen, kleiner und großer Vorhaben und des Übergangs in die Umsetzung.
 
-Die Prompts sind agentenneutral und für Entwicklerinnen, Entwickler und Produktverantwortliche gedacht.
+Die Prompts funktionieren in jedem KI-Chat und sind für Entwicklerinnen, Entwickler und Produktverantwortliche gedacht.
 
 ## Einstieg
 
-**Der Leitfaden mit Prompt-Übersicht steht in [lib/README.md](lib/README.md).** Dort finden Sie auch alle Prompts.
+**Der Leitfaden mit Prompt-Übersicht steht in [lib/README.md](lib/README.md).** Dort findest du auch alle Prompts.
 
-## Weitere Dateien
+Die Anforderungen an dieses Projekt selbst stehen in [REQUIREMENTS.md](REQUIREMENTS.md); jede Anforderung hat eine eigene Datei in [docs/requirements/](docs/requirements/).
 
-- [REQUIREMENTS.md](REQUIREMENTS.md): Zielbild und Anforderungen an Idea to Spec selbst.
-- [CONTRIBUTING.md](CONTRIBUTING.md): Regeln für Mitwirkende.
-- [AGENTS.md](AGENTS.md): Arbeitsanweisungen für Agenten, die an diesem Repository arbeiten.
+## IDs lesen
 
-## Lizenz
+Jede ID hat die Form Art-Gruppe-Nummer, zum Beispiel FR-FLOW-01: Anforderung Nr. 01 in der Gruppe FLOW. Eine vergebene ID ändert sich nie; der Dateiname einer Anforderung ist ihre ID.
 
-[MIT](LICENSE)
+| Art | Bedeutung |
+|---|---|
+| FR | Anforderung (Functional Requirement) |
+| AC | Abnahmekriterium einer Anforderung (Acceptance Criterion) |
+| OQ | offene Frage (Open Question); mit Haken: getroffene Entscheidung |
+| ADR | Architekturentscheidung (Architecture Decision Record) |
+| SEC | Sicherheitsanforderung (Security) |
+| DES | Designanforderung (Design) |
+| WP | Arbeitspaket (Work Package) |
+
+Themengruppen dieses Projekts:
+
+| Gruppe | Thema |
+|---|---|
+| SCOPE | Zweck und Abgrenzung |
+| FLOW | Ablauf und Aufbau |
+| DIALOG | Gesprächsführung und Prüftiefe |
+| REQ | Anforderungen |
+| SPEC | Spezifikation und Prüfung |
+| WP | Arbeitspakete |
+| USE | Nutzung |
+
+## Specification
+
+| Document | Responsibility | Status |
+|---|---|---|
+| [REQUIREMENTS.md](REQUIREMENTS.md) | Anforderungen an die Prompt-Library | confirmed |

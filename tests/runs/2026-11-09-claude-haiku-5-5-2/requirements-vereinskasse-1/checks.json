@@ -1,0 +1,110 @@
+[
+ {
+  "id": "dlg:has-dialog",
+  "ac": "AC-DIALOG-01 FR-DIALOG-02",
+  "status": "pass",
+  "detail": "kein Dialog: Ergebnis sofort ohne eine Frage"
+ },
+ {
+  "id": "dlg:ends",
+  "ac": "FR-DIALOG-07",
+  "status": "pass",
+  "detail": "Endlosgespräch: Rundengrenze ohne Endergebnis erreicht"
+ },
+ {
+  "id": "dlg:max-3-questions",
+  "ac": "AC-DIALOG-09",
+  "status": "pass",
+  "detail": "Runden mit mehr als 3 Empfehlungen: []"
+ },
+ {
+  "id": "dlg:recommendation",
+  "ac": "AC-DIALOG-07",
+  "status": "warn",
+  "detail": "Fragerunden ohne markierte Empfehlung: [10]"
+ },
+ {
+  "id": "dlg:topic-list",
+  "ac": "AC-DIALOG-19",
+  "status": "warn",
+  "detail": "Runden ohne nummerierte Themenliste vor der ersten Frage: [1, 2, 3, 4, 10]"
+ },
+ {
+  "id": "out:requirements",
+  "ac": "AC-USE-03",
+  "status": "pass",
+  "detail": "REQUIREMENTS.md nicht als Text ausgegeben"
+ },
+ {
+  "id": "out:template",
+  "ac": "OQ-REQ-05",
+  "status": "pass",
+  "detail": "docs/REQUIREMENT_TEMPLATE.md fehlt"
+ },
+ {
+  "id": "out:req-files",
+  "ac": "AC-SPEC-12",
+  "status": "pass",
+  "detail": "keine Datei docs/requirements/<ID>.md"
+ },
+ {
+  "id": "out:file-names",
+  "ac": "OQ-SPEC-07",
+  "status": "pass",
+  "detail": "[]"
+ },
+ {
+  "id": "out:length",
+  "ac": "AC-SPEC-13",
+  "status": "pass",
+  "detail": "{}"
+ },
+ {
+  "id": "out:ac-gherkin",
+  "ac": "AC-REQ-02 OQ-REQ-06",
+  "status": "pass",
+  "detail": "ohne AC: [] Gherkin unvollständig: []"
+ },
+ {
+  "id": "out:id-kinds",
+  "ac": "AC-REQ-03",
+  "status": "pass",
+  "detail": "fremde ID-Arten: []"
+ },
+ {
+  "id": "out:groups-explained",
+  "ac": "AC-REQ-04",
+  "status": "pass",
+  "detail": "Gruppen nicht in „IDs lesen“: []"
+ },
+ {
+  "id": "out:readme-sections",
+  "ac": "OQ-SPEC-07",
+  "status": "pass",
+  "detail": "README.md mit „IDs lesen“ und „Specification“ fehlt"
+ },
+ {
+  "id": "out:links",
+  "ac": "AC-SPEC-09",
+  "status": "fail",
+  "detail": "IDs ohne Link oder mit Zusatztext: {'REQUIREMENTS.md': ['OQ-LEGAL-01', 'OQ-PLATFORM-01'], 'FR-CAPTURE-01.md': ['OQ-CAPTURE-01'], 'FR-CAPTURE-02.md': ['OQ-CAPTURE-01'], 'FR-PHOTO-01.md': ['OQ-ASSUME-08', 'OQ-PHOTO-01'], 'FR-CONNECT-01.md': ['OQ-CONNECT-01'], 'FR-QUALITY-01.md': ['OQ-QUALITY-01'], 'FR-REVIEW-01.md': ['OQ-REVIEW-01'], 'FR-ROLES-01.md': ['OQ-ROLES-01'], 'FR-RETENTION-01.md': ['OQ-LEGAL-02', 'OQ-RETENTION-01'], 'FR-PLATFORM-01.md': ['OQ-PLATFORM-01'], 'FR-PLATFORM-03.md': ['OQ-GOAL-02']}"
+ },
+ {
+  "id": "out:catalog",
+  "ac": "AC-SPEC-08",
+  "status": "pass",
+  "detail": "Spalten ['ID', 'Group', 'Title', 'Status'], Status ['confirmed']"
+ },
+ {
+  "id": "out:oq-format",
+  "ac": "OQ-SPEC-06",
+  "status": "pass",
+  "detail": "falsch: [] status-Feld: False"
+ },
+ {
+  "id": "out:source-role",
+  "ac": "AC-DIALOG-02",
+  "status": "pass",
+  "detail": "Quellen, die keine Rolle sind: []"
+ }
+]

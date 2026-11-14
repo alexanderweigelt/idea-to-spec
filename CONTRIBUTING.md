@@ -1,24 +1,26 @@
 # Mitwirken an Idea to Spec
 
-Danke für Ihr Interesse. Die oberste Grundlage ist [REQUIREMENTS.md](REQUIREMENTS.md): Was dort steht, gilt. Prüfen Sie jede Änderung daran.
+Danke für Ihr Interesse. Die oberste Grundlage ist [REQUIREMENTS.md](REQUIREMENTS.md): Was dort steht, gilt. Prüfen Sie jede Änderung daran. Die Arbeitsregeln für Menschen und Agenten stehen in [AGENTS.md](AGENTS.md).
 
-## Regeln für Prompts
+## Wie eine Änderung entsteht
 
-- Jeder Prompt liegt in einer eigenen Datei in `lib/` und ist eigenständig kopierbar. Kein Prompt setzt einen anderen voraus.
-- Dateinamen: englisch, Kleinbuchstaben, mit Bindestrich, ohne Nummern.
-- Aufbau: kurzer deutscher Kopf (Rolle, Zweck, Voraussetzungen, Eingaben, Ergebnisdatei), darunter genau ein englischer Prompt-Block. Der Block beginnt mit einem Rollensatz, der Auftrag und Grenze nennt, danach folgt der Eingabeblock mit benannten Feldern.
-- Einen gemeinsamen Grundtext, der in jeden Prompt kopiert wird, gibt es nicht. Jeder Prompt enthält nur die Regeln, die er braucht.
-- Standards und Qualitätsziele gehören in den zuständigen Fachprompt, mit Version.
-- Keine Entstehungsgeschichte, Schulungsbezüge oder Änderungshistorien in Prompts.
-- Nichts erfinden: keine Funktionen, Fakten, Standardkennungen oder Prüfergebnisse. Was nicht geprüft werden konnte, wird als ungeprüft gekennzeichnet.
+- `lib/` wird aus REQUIREMENTS.md erzeugt. Ändern Sie Prompts nie direkt in `lib/`. Passen Sie stattdessen die Anforderungen an, bevorzugt durch eine behutsame Änderung eines bestehenden Eintrags, und erzeugen Sie `lib/` danach neu. Ein Neuaufbau muss jede Anforderung wieder erfüllen.
+- Jede Anforderung hat eine eigene Datei in [docs/requirements/](docs/requirements/), ihr Dateiname ist ihre ID. Neue Anforderungen folgen der Vorlage [docs/REQUIREMENT_TEMPLATE.md](docs/REQUIREMENT_TEMPLATE.md).
+- Wie ein Prompt aufgebaut ist, welche Sprache wo gilt und welche Standards vorbelegt sind, legt REQUIREMENTS.md fest (zum Beispiel FR-FLOW-02, OQ-FLOW-04, OQ-FLOW-06). Diese Regeln werden hier nicht wiederholt.
+- Halten Sie Änderungen klein und begründen Sie jede mit einer ID aus REQUIREMENTS.md. Weniger ist besser: Lassen Sie weg, was keinen Nutzen hat.
 
-## Sprache und Kennungen
+## IDs
 
-- Anweisungen für Agenten (Prompts, `AGENTS.md`, `CLAUDE.md`), Dateinamen und Code sind englisch.
-- Beschreibungen und der Leitfaden sind deutsch.
-- Kennungen (FR, AC, OQ, ADR, SEC, T, WP) werden nie neu vergeben.
-- Die Version steht nur in `lib/README.md`.
+- Welche ID-Arten und Themengruppen es gibt, erklärt der Abschnitt „IDs lesen“ in [README.md](README.md).
+- Eine vergebene ID wird nie neu vergeben.
 - Formulierungen werden wörtlich gelesen: „sollte“ ist optional, „muss“ ist Pflicht. Nicht verschärfen.
+
+## Prompts testen
+
+- Wie getestet wird, beschreibt [skills/test-prompts/SKILL.md](skills/test-prompts/SKILL.md). Die Schritte sind einfache Shell-Befehle und funktionieren mit jedem Agenten oder von Hand.
+- Stufe 1 ist eine statische Prüfung ohne KI und ohne Kosten (`python tests/static_check.py`). Sie muss bestehen, bevor ein kostenpflichtiger Lauf startet.
+- Stufe 2 sind automatische Szenario-Läufe mit simuliertem Nutzer und harter Kostengrenze. Vor jedem kostenpflichtigen Lauf wird die Kostenschätzung gezeigt und auf Zustimmung gewartet.
+- Befunde aus Tests werden in REQUIREMENTS.md behoben, nie direkt in `lib/`.
 
 ## Branch-Modell (Gitflow)
 
@@ -32,21 +34,13 @@ Danke für Ihr Interesse. Die oberste Grundlage ist [REQUIREMENTS.md](REQUIREMEN
 ## Commits (Conventional Commits)
 
 - Commit-Nachrichten folgen [Conventional Commits](https://www.conventionalcommits.org/) und sind immer englisch: `<type>: <description>`, zum Beispiel `feat: add legal prompt`.
-- Erlaubte Typen: `feat`, `fix`, `docs`, `refactor`, `chore`.
+- Erlaubte Typen: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`.
 - Die Beschreibung steht im Imperativ, ohne Punkt am Ende. Ein Hinweis auf eine Anforderung kann in den Nachrichtentext.
 - Eine logische Änderung pro Commit. Ein Breaking Change wird mit `!` hinter dem Typ und `BREAKING CHANGE:` im Nachrichtentext gekennzeichnet.
 
-## Änderungen einreichen
-
-- Halten Sie Änderungen klein und begründen Sie sie mit einer Anforderung aus `REQUIREMENTS.md`. Weniger ist besser: Lassen Sie weg, was keinen Nutzen hat.
-- Ändert sich ein Prompt, prüfen Sie, ob der Leitfaden in `lib/README.md` angepasst werden muss.
-- Neue Prompts oder Änderungen sollten Sie in einer neuen KI-Session per Copy-and-paste ausprobieren. Nur Angewendetes gilt als geprüft.
-- Für Vergleichstests sollten Eingabe, erwartetes Ergebnis, Modellversion und tatsächliches Ergebnis festgehalten und dieselben Beispiele nach Prompt- oder Modelländerungen erneut geprüft werden. Bei Promptänderungen sollten alte und neue Fassung mit derselben Modellversion verglichen werden.
-- Bestehenskriterien sollten beobachtbares Verhalten beschreiben, zum Beispiel: fehlende Angaben werden als offen markiert; bestätigte Entscheidungen bleiben erhalten; ohne Dateizugriff wird ein vollständiger Entwurf mit Speicherhinweis geliefert. Wortgleiche Antworten sind kein sinnvolles Bestehenskriterium. Vorhandene echte Projektbeispiele können wiederverwendet werden.
-
 ## Mit Agenten arbeiten
 
-Agenten, die an diesem Repository arbeiten, folgen [AGENTS.md](AGENTS.md) und den Branch- und Commit-Regeln oben. Sie committen, pushen oder löschen nicht ohne ausdrücklichen Auftrag.
+Agenten folgen [AGENTS.md](AGENTS.md) und den Branch- und Commit-Regeln oben. Sie committen, pushen oder löschen nicht ohne ausdrücklichen Auftrag.
 
 ## Lizenz
 

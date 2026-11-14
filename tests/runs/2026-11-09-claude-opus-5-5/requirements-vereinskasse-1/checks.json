@@ -1,0 +1,110 @@
+[
+ {
+  "id": "dlg:has-dialog",
+  "ac": "AC-DIALOG-01 FR-DIALOG-02",
+  "status": "pass",
+  "detail": "kein Dialog: Ergebnis sofort ohne eine Frage"
+ },
+ {
+  "id": "dlg:ends",
+  "ac": "FR-DIALOG-07",
+  "status": "pass",
+  "detail": "Endlosgespräch: Rundengrenze ohne Endergebnis erreicht"
+ },
+ {
+  "id": "dlg:max-3-questions",
+  "ac": "AC-DIALOG-09",
+  "status": "warn",
+  "detail": "Runden mit mehr als 3 Empfehlungen: [1]"
+ },
+ {
+  "id": "dlg:recommendation",
+  "ac": "AC-DIALOG-07",
+  "status": "pass",
+  "detail": "Fragerunden ohne markierte Empfehlung: []"
+ },
+ {
+  "id": "dlg:topic-list",
+  "ac": "AC-DIALOG-19",
+  "status": "warn",
+  "detail": "Runden ohne nummerierte Themenliste vor der ersten Frage: [3]"
+ },
+ {
+  "id": "out:requirements",
+  "ac": "AC-USE-03",
+  "status": "pass",
+  "detail": "REQUIREMENTS.md nicht als Text ausgegeben"
+ },
+ {
+  "id": "out:template",
+  "ac": "OQ-REQ-05",
+  "status": "pass",
+  "detail": "docs/REQUIREMENT_TEMPLATE.md fehlt"
+ },
+ {
+  "id": "out:req-files",
+  "ac": "AC-SPEC-12",
+  "status": "fail",
+  "detail": "keine Datei docs/requirements/<ID>.md"
+ },
+ {
+  "id": "out:file-names",
+  "ac": "OQ-SPEC-07",
+  "status": "pass",
+  "detail": "[]"
+ },
+ {
+  "id": "out:length",
+  "ac": "AC-SPEC-13",
+  "status": "pass",
+  "detail": "{}"
+ },
+ {
+  "id": "out:ac-gherkin",
+  "ac": "AC-REQ-02 OQ-REQ-06",
+  "status": "pass",
+  "detail": "ohne AC: [] Gherkin unvollständig: []"
+ },
+ {
+  "id": "out:id-kinds",
+  "ac": "AC-REQ-03",
+  "status": "pass",
+  "detail": "fremde ID-Arten: []"
+ },
+ {
+  "id": "out:groups-explained",
+  "ac": "AC-REQ-04",
+  "status": "pass",
+  "detail": "Gruppen nicht in „IDs lesen“: []"
+ },
+ {
+  "id": "out:readme-sections",
+  "ac": "OQ-SPEC-07",
+  "status": "pass",
+  "detail": "README.md mit „IDs lesen“ und „Specification“ fehlt"
+ },
+ {
+  "id": "out:links",
+  "ac": "AC-SPEC-09",
+  "status": "pass",
+  "detail": "IDs ohne Link oder mit Zusatztext: {}"
+ },
+ {
+  "id": "out:catalog",
+  "ac": "AC-SPEC-08",
+  "status": "pass",
+  "detail": "Spalten ['ID', 'Group', 'Title', 'Status'], Status ['confirmed']"
+ },
+ {
+  "id": "out:oq-format",
+  "ac": "OQ-SPEC-06",
+  "status": "pass",
+  "detail": "falsch: [] status-Feld: False"
+ },
+ {
+  "id": "out:source-role",
+  "ac": "AC-DIALOG-02",
+  "status": "pass",
+  "detail": "Quellen, die keine Rolle sind: []"
+ }
+]

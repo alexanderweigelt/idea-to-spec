@@ -1,0 +1,9 @@
+{
+  "prompt": "lib/requirements.md",
+  "input": {
+    "IDEA": "Eine App für unseren Sportverein: Mitglieder fotografieren Belege für ihre Auslagen mit dem Handy und reichen sie beim Kassenwart ein.",
+    "CONSTRAINTS": "Kleines Budget, alles ehrenamtlich. Ein Bekannter baut es als Web-App (PWA). Die App soll im App Store und bei Google Play stehen. Betrag und Datum liest Google Cloud Vision automatisch vom Foto."
+  },
+  "judge_acs": ["AC-DIALOG-01", "AC-DIALOG-02", "AC-DIALOG-03", "AC-DIALOG-04", "AC-DIALOG-05",
+                "AC-DIALOG-06", "AC-DIALOG-13", "AC-DIALOG-16", "AC-DIALOG-17", "AC-DIALOG-23"]
+}
