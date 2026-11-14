@@ -60,6 +60,7 @@ class AnthropicChat:
 
 
 PROVIDERS = {"anthropic": AnthropicChat}
+from .cli_chat import CliChat; PROVIDERS["cli"] = CliChat  # noqa: E402,E702 – temporary local CLI provider, see cli_chat.py
 
 
 def connect(name):

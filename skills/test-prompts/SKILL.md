@@ -29,6 +29,10 @@ Works with any agent or by hand: every step is a plain shell command. The agent 
 
 `.github/workflows/prompt-tests.yml` runs stage 1 on every push and pull request. Stage 2 runs by hand (Actions → Prompt tests → Run workflow: dry run first, then smoke test, then target model) and automatically as regression test with the target model when a `release/<version>` branch is pushed. It signs in without an API key via Workload Identity Federation (repository variables `ANTHROPIC_FEDERATION_RULE_ID`, `ANTHROPIC_ORGANIZATION_ID`, `ANTHROPIC_SERVICE_ACCOUNT_ID`, `ANTHROPIC_WORKSPACE_ID`) and commits `tests/runs` to the branch. The run's summary appears on the workflow page.
 
+## Local CLI (temporary)
+
+For development only: runs the same test through a local agent CLI with subscription access instead of the API. Set `"provider": "cli"` in `tests/config.json`; choose the profile in the `cli` block or with `TEST_CLI_PROFILE=claude|codex|<own>`. Each call runs in a fresh empty temp folder with tools off. Log in to the CLI yourself beforehand. Local results are a different access, not equal to API runs; CI stays the quality gate. There is no fallback to the API. To remove: `tests/harness/cli_chat.py`, its line in `llm.py`, the `cli` block in `config.json`, this section.
+
 ## Rules
 
 - Hard limits (`tests/config.json` → `limits_usd`) are never raised without the human's word.

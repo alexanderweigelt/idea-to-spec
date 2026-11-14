@@ -17,6 +17,15 @@
   "max_rounds": 12,
   "max_tokens": {"tested": 64000, "user": 800, "judge": 16000},
   "effort": {"tested": null, "user": "low", "judge": "medium"},
+  "cli": {
+    "_note": "Vorübergehend, nur lokal: \"provider\": \"cli\" setzen. Profil hier oder per TEST_CLI_PROFILE. Eigenes Profil unter profiles (Platzhalter siehe tests/harness/cli_chat.py). Zum Entfernen: Block löschen.",
+    "profile": "claude",
+    "pass_model": true,
+    "timeout_s": 600,
+    "profiles": {
+      "template": {"command": ["my-agent", "--print", "--no-tools", "--model", "{model}"], "parse": "text", "system": "prepend"}
+    }
+  },
   "static": {
     "_note": "Struktur, die lib/ heute nutzt, um AC-FLOW-03/-05/-08 zu erfüllen. Ändert ein Neuaufbau von lib/ diese Namen, hier anpassen.",
     "header_rows": ["Rolle", "Braucht zwingend", "Nutzt, falls vorhanden", "Erzeugt", "Fertig, wenn"],
